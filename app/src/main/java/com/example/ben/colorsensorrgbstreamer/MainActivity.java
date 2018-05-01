@@ -151,8 +151,8 @@ public class MainActivity extends AppCompatActivity {
         RedText = (TextView) findViewById(R.id.redtext);
         GreenText = (TextView)findViewById(R.id.greentext);
         BlueText = (TextView)findViewById(R.id.bluetext);
-        DataText = (TextView)findViewById(R.id.textView4);
-        ColorText = (TextView)findViewById(R.id.textView5);
+        DataText = (TextView)findViewById(R.id.datatext);
+        ColorText = (TextView)findViewById(R.id.representativetext);
         /*ColorSurface = (SurfaceView)findViewById(R.id.surfaceView);
         ColorSurface2 = (SurfaceView)findViewById(R.id.surfaceView2);
         ColorSurface4 = (SurfaceView)findViewById(R.id.surfaceView4);
