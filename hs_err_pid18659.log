@@ -1,0 +1,1256 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 68681728 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=18659, tid=0x00007feb1d9f9700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_152-b01) (build 1.8.0_152-release-1024-b01)
+# Java VM: OpenJDK 64-Bit Server VM (25.152-b01 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007feb30079000):  VMThread [stack: 0x00007feb1d8f9000,0x00007feb1d9fa000] [id=18668]
+
+Stack: [0x00007feb1d8f9000,0x00007feb1d9fa000],  sp=0x00007feb1d9f8480,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x9ed02d]  VMError::report_and_die()+0x15d
+V  [libjvm.so+0x4b99fa]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8a
+V  [libjvm.so+0x852c20]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0xf0
+V  [libjvm.so+0x84d72f]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x1f
+V  [libjvm.so+0x8c448b]  PSVirtualSpace::expand_by(unsigned long)+0x5b
+V  [libjvm.so+0x8b526b]  PSOldGen::expand_by(unsigned long) [clone .part.109]+0x1b
+V  [libjvm.so+0x8b542b]  PSOldGen::expand(unsigned long) [clone .part.111]+0xdb
+V  [libjvm.so+0x8b5d08]  PSOldGen::resize(unsigned long)+0x188
+V  [libjvm.so+0x8bb31c]  PSParallelCompact::invoke_no_policy(bool)+0x97c
+V  [libjvm.so+0x8c242d]  PSScavenge::invoke()+0x17d
+V  [libjvm.so+0x876633]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x63
+V  [libjvm.so+0x9eeb54]  VM_ParallelGCFailedAllocation::doit()+0x84
+V  [libjvm.so+0x9f3067]  VM_Operation::evaluate()+0x47
+V  [libjvm.so+0x9f1a48]  VMThread::evaluate_operation(VM_Operation*)+0x2c8
+V  [libjvm.so+0x9f1ec9]  VMThread::loop()+0x219
+V  [libjvm.so+0x9f2312]  VMThread::run()+0x72
+V  [libjvm.so+0x850032]  java_start(Thread*)+0xf2
+
+VM_Operation (0x00007fea998f5f70): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007feae8013800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007feaf48c9800 JavaThread "ForkJoinPool.commonPool-worker-11" daemon [_thread_blocked, id=19212, stack(0x00007fea92c02000,0x00007fea92d03000)]
+  0x00007feb01abb800 JavaThread "ForkJoinPool.commonPool-worker-9" daemon [_thread_blocked, id=19211, stack(0x00007fea92d03000,0x00007fea92e04000)]
+  0x00007feb04559000 JavaThread "ForkJoinPool.commonPool-worker-14" daemon [_thread_blocked, id=19210, stack(0x00007fea92e04000,0x00007fea92f05000)]
+  0x00007feaf415e800 JavaThread "ForkJoinPool.commonPool-worker-10" daemon [_thread_blocked, id=19209, stack(0x00007fea92f05000,0x00007fea93006000)]
+  0x00007feafc341800 JavaThread "ForkJoinPool.commonPool-worker-6" daemon [_thread_blocked, id=19208, stack(0x00007fea93206000,0x00007fea93307000)]
+  0x00007feaf4c2e000 JavaThread "ForkJoinPool.commonPool-worker-5" daemon [_thread_blocked, id=19207, stack(0x00007fea93307000,0x00007fea93408000)]
+  0x00007feaf46e0800 JavaThread "ForkJoinPool.commonPool-worker-7" daemon [_thread_blocked, id=19206, stack(0x00007fea93408000,0x00007fea93509000)]
+  0x00007feae8013800 JavaThread "ForkJoinPool.commonPool-worker-4" daemon [_thread_blocked, id=19205, stack(0x00007fea997f7000,0x00007fea998f8000)]
+  0x00007fea8c062000 JavaThread "ForkJoinPool.commonPool-worker-0" daemon [_thread_blocked, id=19204, stack(0x00007fea98d09000,0x00007fea98e0a000)]
+  0x00007fead408f800 JavaThread "ForkJoinPool.commonPool-worker-3" daemon [_thread_blocked, id=19203, stack(0x00007fea98f0b000,0x00007fea9900c000)]
+  0x00007fead408f000 JavaThread "ForkJoinPool.commonPool-worker-2" daemon [_thread_blocked, id=19202, stack(0x00007fea98e0a000,0x00007fea98f0b000)]
+  0x00007fead4227000 JavaThread "ForkJoinPool.commonPool-worker-1" daemon [_thread_blocked, id=19201, stack(0x00007fea9910d000,0x00007fea9920e000)]
+  0x00007fead4094000 JavaThread "Cache worker for Java compile cache (/home/james/Documents/ECELab6-050/ColorSensorRGBStreamer12Well/.gradle/4.4/javaCompile)" [_thread_blocked, id=19197, stack(0x00007fea9920e000,0x00007fea9930f000)]
+  0x00007feac550f000 JavaThread "Task worker for ':' Thread 3" [_thread_blocked, id=19196, stack(0x00007fea996f6000,0x00007fea997f7000)]
+  0x00007feac4e29000 JavaThread "Task worker for ':' Thread 2" [_thread_blocked, id=19195, stack(0x00007fea99511000,0x00007fea99612000)]
+  0x00007feac4e28000 JavaThread "Task worker for ':'" [_thread_blocked, id=19194, stack(0x00007fea998f8000,0x00007fea999f9000)]
+  0x00007feac4e2c800 JavaThread "Cache worker for Build Output Cleanup Cache (/home/james/Documents/ECELab6-050/ColorSensorRGBStreamer12Well/.gradle/buildOutputCleanup)" [_thread_blocked, id=19193, stack(0x00007fea9a0fe000,0x00007fea9a1ff000)]
+  0x00007feac4e2c000 JavaThread "Cache worker for task history cache (/home/james/Documents/ECELab6-050/ColorSensorRGBStreamer12Well/.gradle/4.4/taskHistory)" [_thread_blocked, id=19192, stack(0x00007fea9930f000,0x00007fea99410000)]
+  0x00007feac4e2e000 JavaThread "Cache worker for file content cache (/home/james/Documents/ECELab6-050/ColorSensorRGBStreamer12Well/.gradle/4.4/fileContent)" [_thread_blocked, id=19191, stack(0x00007feacea71000,0x00007feaceb72000)]
+  0x00007feac56d5000 JavaThread "build operations Thread 4" [_thread_blocked, id=19190, stack(0x00007feacd864000,0x00007feacd965000)]
+  0x00007feac4f1f000 JavaThread "build operations Thread 3" [_thread_blocked, id=19189, stack(0x00007feacd763000,0x00007feacd864000)]
+  0x00007feac481f800 JavaThread "build operations Thread 2" [_thread_blocked, id=19188, stack(0x00007feacf7fc000,0x00007feacf8fd000)]
+  0x00007feac4d1a800 JavaThread "build operations" [_thread_blocked, id=19187, stack(0x00007feae40e5000,0x00007feae41e6000)]
+  0x00007feac4010800 JavaThread "Cache worker for Artifact transforms cache (/home/james/.gradle/caches/transforms-1)" [_thread_blocked, id=19183, stack(0x00007feae42e7000,0x00007feae43e8000)]
+  0x00007feac4aed800 JavaThread "Cache worker for file hash cache (/home/james/Documents/ECELab6-050/ColorSensorRGBStreamer12Well/.gradle/4.4/fileHashes)" [_thread_blocked, id=19182, stack(0x00007feae43e8000,0x00007feae44e9000)]
+  0x00007feac4ae6000 JavaThread "Stdin handler" [_thread_blocked, id=19180, stack(0x00007fea99dfb000,0x00007fea99efc000)]
+  0x00007feac400d800 JavaThread "Asynchronous log dispatcher for DefaultDaemonConnection: socket connection from /127.0.0.1:33155 to /127.0.0.1:43084" [_thread_blocked, id=19178, stack(0x00007feae41e6000,0x00007feae42e7000)]
+  0x00007feadc00a800 JavaThread "Cancel handler" [_thread_blocked, id=19177, stack(0x00007fea9900c000,0x00007fea9910d000)]
+  0x00007feadc00c000 JavaThread "Handler for socket connection from /127.0.0.1:33155 to /127.0.0.1:43084" [_thread_in_native, id=19176, stack(0x00007fea999f9000,0x00007fea99afa000)]
+  0x00007feac4a4d800 JavaThread "pool-10-thread-1" [_thread_blocked, id=19161, stack(0x00007fea99410000,0x00007fea99511000)]
+  0x00007feac4003000 JavaThread "pool-9-thread-1" [_thread_blocked, id=19143, stack(0x00007feacfcff000,0x00007feacfe00000)]
+  0x00007feac49e6800 JavaThread "pool-8-thread-1" [_thread_blocked, id=19115, stack(0x00007fea99cfa000,0x00007fea99dfb000)]
+  0x00007feac4384000 JavaThread "pool-7-thread-1" [_thread_blocked, id=19095, stack(0x00007feacd662000,0x00007feacd763000)]
+  0x00007feadc00e000 JavaThread "Daemon worker Thread 2" [_thread_blocked, id=19084, stack(0x00007fea99efc000,0x00007fea99ffd000)]
+  0x00007feae0021800 JavaThread "Daemon Thread 2" [_thread_blocked, id=19081, stack(0x00007feae44e9000,0x00007feae45ea000)]
+  0x00007feaca2dc800 JavaThread "pool-6-thread-1" [_thread_blocked, id=18834, stack(0x00007fea99ffd000,0x00007fea9a0fe000)]
+  0x00007feac9dca800 JavaThread "pool-5-thread-1" [_thread_blocked, id=18818, stack(0x00007feacd561000,0x00007feacd662000)]
+  0x00007feac9908800 JavaThread "pool-2-thread-1" [_thread_blocked, id=18725, stack(0x00007fea9abff000,0x00007fea9ad00000)]
+  0x00007feac910f800 JavaThread "Memory manager" [_thread_blocked, id=18701, stack(0x00007feacc632000,0x00007feacc733000)]
+  0x00007feac8bd4800 JavaThread "pool-1-thread-1" [_thread_blocked, id=18700, stack(0x00007feacc933000,0x00007feacca34000)]
+  0x00007feac81d6000 JavaThread "File lock request listener" [_thread_in_native, id=18689, stack(0x00007feacfafd000,0x00007feacfbfe000)]
+  0x00007feac81d2800 JavaThread "Cache worker for file hash cache (/home/james/.gradle/caches/4.4/fileHashes)" [_thread_blocked, id=18688, stack(0x00007feacfbfe000,0x00007feacfcff000)]
+  0x00007feb30d77000 JavaThread "Daemon periodic checks" [_thread_blocked, id=18679, stack(0x00007feae45ea000,0x00007feae46eb000)]
+  0x00007feb30d58800 JavaThread "Incoming local TCP Connector on port 33155" [_thread_in_native, id=18678, stack(0x00007feae46f2000,0x00007feae47f3000)]
+  0x00007feb300c1000 JavaThread "Service Thread" daemon [_thread_blocked, id=18675, stack(0x00007feb1cf16000,0x00007feb1d017000)]
+  0x00007feb300be000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=18674, stack(0x00007feb1d017000,0x00007feb1d118000)]
+  0x00007feb300bc000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=18673, stack(0x00007feb1d118000,0x00007feb1d219000)]
+  0x00007feb300b9800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=18672, stack(0x00007feb1d219000,0x00007feb1d31a000)]
+  0x00007feb300b5000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=18671, stack(0x00007feb1d31a000,0x00007feb1d41b000)]
+  0x00007feb30085000 JavaThread "Finalizer" daemon [_thread_blocked, id=18670, stack(0x00007feb1d6f7000,0x00007feb1d7f8000)]
+  0x00007feb30080800 JavaThread "Reference Handler" daemon [_thread_blocked, id=18669, stack(0x00007feb1d7f8000,0x00007feb1d8f9000)]
+  0x00007feb3000b000 JavaThread "main" [_thread_blocked, id=18661, stack(0x00007feb39248000,0x00007feb39349000)]
+
+Other Threads:
+=>0x00007feb30079000 VMThread [stack: 0x00007feb1d8f9000,0x00007feb1d9fa000] [id=18668]
+  0x00007feb300c3800 WatcherThread [stack: 0x00007feb1ce15000,0x00007feb1cf16000] [id=18676]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007feb300075a0] ExpandHeap_lock - owner thread: 0x00007feb30079000
+[0x00007feb30007c20] Threads_lock - owner thread: 0x00007feb30079000
+[0x00007feb30008120] Heap_lock - owner thread: 0x00007feae8013800
+
+Heap:
+ PSYoungGen      total 460800K, used 0K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398848K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8580000)
+  from space 61952K, 0% used [0x00000000fc100000,0x00000000fc100000,0x00000000ffd80000)
+  to   space 60928K, 0% used [0x00000000f8580000,0x00000000f8580000,0x00000000fc100000)
+ ParOldGen       total 209920K, used 165383K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 78% used [0x00000000a0000000,0x00000000aa181db8,0x00000000acd00000)
+ Metaspace       used 184680K, capacity 194598K, committed 194816K, reserved 1218560K
+  class space    used 23593K, capacity 25586K, committed 25600K, reserved 1048576K
+
+Card table byte_map: [0x00007feb35d62000,0x00007feb36063000] byte_map_base: 0x00007feb35862000
+
+Marking Bits: (ParMarkBitMap*) 0x00007feb386f9440
+ Begin Bits: [0x00007feb1e000000, 0x00007feb1f800000)
+ End Bits:   [0x00007feb1f800000, 0x00007feb21000000)
+
+Polling page: 0x00007feb39366000
+
+CodeCache: size=245760Kb used=60881Kb max_used=61031Kb free=184878Kb
+ bounds [0x00007feb21000000, 0x00007feb24c00000, 0x00007feb30000000]
+ total_blobs=18889 nmethods=18017 adapters=783
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 685.945 Thread 0x00007feb300bc000 nmethod 22016 0x00007feb221a8bd0 code [0x00007feb221a8d40, 0x00007feb221a8f68]
+Event: 685.946 Thread 0x00007feb300be000 nmethod 21978% 0x00007feb241b0550 code [0x00007feb241b0720, 0x00007feb241b0d68]
+Event: 685.983 Thread 0x00007feb300be000 22053 %     3       com.android.tools.r8.ir.optimize.InstructionEquivalence::doHash @ 49 (120 bytes)
+Event: 685.983 Thread 0x00007feb300bc000 22047   !   4       java.util.concurrent.ConcurrentHashMap::computeIfAbsent (493 bytes)
+Event: 686.234 Thread 0x00007feb300be000 nmethod 22053% 0x00007feb224e2450 code [0x00007feb224e26c0, 0x00007feb224e3758]
+Event: 686.249 Thread 0x00007feb300be000 22017 %     3       com.android.tools.r8.ir.conversion.JarState::mergeLocals @ 26 (201 bytes)
+Event: 686.367 Thread 0x00007feb300be000 nmethod 22017% 0x00007feb240b9ad0 code [0x00007feb240b9ce0, 0x00007feb240baab8]
+Event: 686.380 Thread 0x00007feb300b9800 nmethod 22018 0x00007feb2411aa90 code [0x00007feb2411acc0, 0x00007feb2411b648]
+Event: 686.391 Thread 0x00007feb300be000 22058       3       com.android.tools.r8.ir.conversion.JarSourceCode::buildInvoke (147 bytes)
+Event: 686.391 Thread 0x00007feb300b9800 22025 %     4       com.android.tools.r8.ir.conversion.JarState::recordStateForTarget @ 15 (265 bytes)
+
+GC Heap History (10 events):
+Event: 677.023 GC heap after
+Heap after GC invocations=25 (full 5):
+ PSYoungGen      total 458240K, used 25923K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398336K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8500000)
+  from space 59904K, 43% used [0x00000000fbc00000,0x00000000fd550d30,0x00000000ff680000)
+  to   space 56320K, 0% used [0x00000000f8500000,0x00000000f8500000,0x00000000fbc00000)
+ ParOldGen       total 209920K, used 114494K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 54% used [0x00000000a0000000,0x00000000a6fcf910,0x00000000acd00000)
+ Metaspace       used 175066K, capacity 184292K, committed 184448K, reserved 1210368K
+  class space    used 22458K, capacity 24365K, committed 24448K, reserved 1048576K
+}
+Event: 680.882 GC heap before
+{Heap before GC invocations=26 (full 5):
+ PSYoungGen      total 458240K, used 424259K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398336K, 100% used [0x00000000e0000000,0x00000000f8500000,0x00000000f8500000)
+  from space 59904K, 43% used [0x00000000fbc00000,0x00000000fd550d30,0x00000000ff680000)
+  to   space 56320K, 0% used [0x00000000f8500000,0x00000000f8500000,0x00000000fbc00000)
+ ParOldGen       total 209920K, used 114494K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 54% used [0x00000000a0000000,0x00000000a6fcf910,0x00000000acd00000)
+ Metaspace       used 183924K, capacity 193864K, committed 194048K, reserved 1218560K
+  class space    used 23583K, capacity 25597K, committed 25600K, reserved 1048576K
+Event: 681.011 GC heap after
+Heap after GC invocations=26 (full 5):
+ PSYoungGen      total 454656K, used 51978K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398336K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8500000)
+  from space 56320K, 92% used [0x00000000f8500000,0x00000000fb7c2980,0x00000000fbc00000)
+  to   space 62976K, 0% used [0x00000000fc280000,0x00000000fc280000,0x0000000100000000)
+ ParOldGen       total 209920K, used 129005K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 61% used [0x00000000a0000000,0x00000000a7dfb408,0x00000000acd00000)
+ Metaspace       used 183924K, capacity 193864K, committed 194048K, reserved 1218560K
+  class space    used 23583K, capacity 25597K, committed 25600K, reserved 1048576K
+}
+Event: 683.459 GC heap before
+{Heap before GC invocations=27 (full 5):
+ PSYoungGen      total 454656K, used 450314K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398336K, 100% used [0x00000000e0000000,0x00000000f8500000,0x00000000f8500000)
+  from space 56320K, 92% used [0x00000000f8500000,0x00000000fb7c2980,0x00000000fbc00000)
+  to   space 62976K, 0% used [0x00000000fc280000,0x00000000fc280000,0x0000000100000000)
+ ParOldGen       total 209920K, used 129005K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 61% used [0x00000000a0000000,0x00000000a7dfb408,0x00000000acd00000)
+ Metaspace       used 184586K, capacity 194568K, committed 194816K, reserved 1218560K
+  class space    used 23602K, capacity 25597K, committed 25600K, reserved 1048576K
+Event: 683.545 GC heap after
+Heap after GC invocations=27 (full 5):
+ PSYoungGen      total 460288K, used 4999K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 397312K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8400000)
+  from space 62976K, 7% used [0x00000000fc280000,0x00000000fc761d48,0x0000000100000000)
+  to   space 63488K, 0% used [0x00000000f8400000,0x00000000f8400000,0x00000000fc200000)
+ ParOldGen       total 209920K, used 166627K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 79% used [0x00000000a0000000,0x00000000aa2b8c30,0x00000000acd00000)
+ Metaspace       used 184586K, capacity 194568K, committed 194816K, reserved 1218560K
+  class space    used 23602K, capacity 25597K, committed 25600K, reserved 1048576K
+}
+Event: 685.003 GC heap before
+{Heap before GC invocations=28 (full 5):
+ PSYoungGen      total 460288K, used 402311K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 397312K, 100% used [0x00000000e0000000,0x00000000f8400000,0x00000000f8400000)
+  from space 62976K, 7% used [0x00000000fc280000,0x00000000fc761d48,0x0000000100000000)
+  to   space 63488K, 0% used [0x00000000f8400000,0x00000000f8400000,0x00000000fc200000)
+ ParOldGen       total 209920K, used 166627K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 79% used [0x00000000a0000000,0x00000000aa2b8c30,0x00000000acd00000)
+ Metaspace       used 184706K, capacity 194704K, committed 194816K, reserved 1218560K
+  class space    used 23603K, capacity 25597K, committed 25600K, reserved 1048576K
+Event: 685.047 GC heap after
+Heap after GC invocations=28 (full 5):
+ PSYoungGen      total 413184K, used 15386K [0x00000000e0000000, 0x00000000ffd80000, 0x0000000100000000)
+  eden space 397312K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8400000)
+  from space 15872K, 96% used [0x00000000f8400000,0x00000000f9306b38,0x00000000f9380000)
+  to   space 61952K, 0% used [0x00000000fc100000,0x00000000fc100000,0x00000000ffd80000)
+ ParOldGen       total 209920K, used 169617K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 80% used [0x00000000a0000000,0x00000000aa5a4610,0x00000000acd00000)
+ Metaspace       used 184706K, capacity 194704K, committed 194816K, reserved 1218560K
+  class space    used 23603K, capacity 25597K, committed 25600K, reserved 1048576K
+}
+Event: 686.529 GC heap before
+{Heap before GC invocations=29 (full 5):
+ PSYoungGen      total 413184K, used 412698K [0x00000000e0000000, 0x00000000ffd80000, 0x0000000100000000)
+  eden space 397312K, 100% used [0x00000000e0000000,0x00000000f8400000,0x00000000f8400000)
+  from space 15872K, 96% used [0x00000000f8400000,0x00000000f9306b38,0x00000000f9380000)
+  to   space 61952K, 0% used [0x00000000fc100000,0x00000000fc100000,0x00000000ffd80000)
+ ParOldGen       total 209920K, used 169617K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 80% used [0x00000000a0000000,0x00000000aa5a4610,0x00000000acd00000)
+ Metaspace       used 184712K, capacity 194704K, committed 194816K, reserved 1218560K
+  class space    used 23603K, capacity 25597K, committed 25600K, reserved 1048576K
+Event: 686.801 GC heap after
+Heap after GC invocations=29 (full 5):
+ PSYoungGen      total 460800K, used 9651K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398848K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8580000)
+  from space 61952K, 15% used [0x00000000fc100000,0x00000000fca6ced0,0x00000000ffd80000)
+  to   space 60928K, 0% used [0x00000000f8580000,0x00000000f8580000,0x00000000fc100000)
+ ParOldGen       total 209920K, used 183375K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 87% used [0x00000000a0000000,0x00000000ab313e90,0x00000000acd00000)
+ Metaspace       used 184712K, capacity 194704K, committed 194816K, reserved 1218560K
+  class space    used 23603K, capacity 25597K, committed 25600K, reserved 1048576K
+}
+Event: 686.816 GC heap before
+{Heap before GC invocations=30 (full 6):
+ PSYoungGen      total 460800K, used 9651K [0x00000000e0000000, 0x0000000100000000, 0x0000000100000000)
+  eden space 398848K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000f8580000)
+  from space 61952K, 15% used [0x00000000fc100000,0x00000000fca6ced0,0x00000000ffd80000)
+  to   space 60928K, 0% used [0x00000000f8580000,0x00000000f8580000,0x00000000fc100000)
+ ParOldGen       total 209920K, used 183375K [0x00000000a0000000, 0x00000000acd00000, 0x00000000e0000000)
+  object space 209920K, 87% used [0x00000000a0000000,0x00000000ab313e90,0x00000000acd00000)
+ Metaspace       used 184712K, capacity 194704K, committed 194816K, reserved 1218560K
+  class space    used 23603K, capacity 25597K, committed 25600K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 683.711 Thread 0x00007feafc341800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb213ec4f0 method=java.util.concurrent.ConcurrentHashMap.transfer([Ljava/util/concurrent/ConcurrentHashMap$Node;[Ljava/util/concurrent/ConcurrentHashMap$Node;)V @ 277
+Event: 683.711 Thread 0x00007feafc341800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb21bb07a0 method=java.util.concurrent.ConcurrentHashMap.addCount(JI)V @ 168
+Event: 684.069 Thread 0x00007feaf46e0800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb2413f990 method=java.util.concurrent.ConcurrentHashMap.computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object; @ 200
+Event: 684.172 Thread 0x00007feae8013800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb245119b4 method=com.android.tools.r8.graph.DexString.countBytes(Ljava/lang/String;)I @ 25
+Event: 684.467 Thread 0x00007feae8013800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb213e77c0 method=java.util.concurrent.ConcurrentHashMap.transfer([Ljava/util/concurrent/ConcurrentHashMap$Node;[Ljava/util/concurrent/ConcurrentHashMap$Node;)V @ 277
+Event: 684.861 Thread 0x00007feaf48c9800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb24b2eda8 method=com.android.tools.r8.ir.conversion.JarState.getLocalsAt(I)Lcom/android/tools/r8/ir/conversion/JarState$LocalsAtOffset; @ 1
+Event: 684.872 Thread 0x00007feaf48c9800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb246103f0 method=com.android.tools.r8.ir.conversion.JarSourceCode.getDebugPositionAtOffset(I)Lcom/android/tools/r8/ir/code/Position; @ 3
+Event: 684.942 Thread 0x00007feaf48c9800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb24785450 method=com.android.tools.r8.ir.code.Position.equals(Ljava/lang/Object;)Z @ 34
+Event: 685.343 Thread 0x00007feb01abb800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb23f55c10 method=com.android.tools.r8.graph.DexString.decode()Ljava/lang/String; @ 53
+Event: 685.343 Thread 0x00007feaf48c9800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007feb23f55c10 method=com.android.tools.r8.graph.DexString.decode()Ljava/lang/String; @ 53
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 683.924 Thread 0x00007feaf48c9800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e5de64c8) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.926 Thread 0x00007feb01abb800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e5bf1d20) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.931 Thread 0x00007feb01abb800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e5bfa8c8) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.934 Thread 0x00007feb01abb800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e5c04ad8) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.941 Thread 0x00007feaf48c9800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e5e64940) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.943 Thread 0x00007feb01abb800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e6340128) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.945 Thread 0x00007feb01abb800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e6390348) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.946 Thread 0x00007feaf46e0800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e64c2f78) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 683.963 Thread 0x00007feafc341800 Exception <a 'sun/nio/fs/UnixException'> (0x00000000e65c2e60) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 686.293 Thread 0x00007feac910f800 Exception <a 'java/io/IOException'> (0x00000000f382c2f0) thrown at [/usr/local/google/home/ralucas/source/AOSP-openjdk-git/jdk8u/hotspot/src/share/vm/prims/jni.cpp, line 709]
+
+Events (10 events):
+Event: 686.236 Thread 0x00007feaf415e800 DEOPT UNPACKING pc=0x00007feb210474c4 sp=0x00007fea93003b38 mode 0
+Event: 686.251 Thread 0x00007feae8013800 DEOPT PACKING pc=0x00007feb218ac462 sp=0x00007fea998f5d90
+Event: 686.251 Thread 0x00007feae8013800 DEOPT UNPACKING pc=0x00007feb210474c4 sp=0x00007fea998f5b38 mode 0
+Event: 686.300 Thread 0x00007feaf48c9800 DEOPT PACKING pc=0x00007feb218ac405 sp=0x00007fea92d00d90
+Event: 686.300 Thread 0x00007feaf48c9800 DEOPT UNPACKING pc=0x00007feb210474c4 sp=0x00007fea92d00b38 mode 0
+Event: 686.361 Thread 0x00007feaf415e800 DEOPT PACKING pc=0x00007feb218ac405 sp=0x00007fea93003d00
+Event: 686.361 Thread 0x00007feaf415e800 DEOPT UNPACKING pc=0x00007feb210474c4 sp=0x00007fea93003aa8 mode 0
+Event: 686.409 Thread 0x00007feb01abb800 DEOPT PACKING pc=0x00007feb218ac405 sp=0x00007fea92e01d90
+Event: 686.409 Thread 0x00007feb01abb800 DEOPT UNPACKING pc=0x00007feb210474c4 sp=0x00007fea92e01b38 mode 0
+Event: 686.494 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 4068030                            /usr/local/android-studio/jre/bin/java
+00600000-00601000 r--p 00000000 08:01 4068030                            /usr/local/android-studio/jre/bin/java
+00601000-00602000 rw-p 00001000 08:01 4068030                            /usr/local/android-studio/jre/bin/java
+02003000-02045000 rw-p 00000000 00:00 0                                  [heap]
+a0000000-acd00000 rw-p 00000000 00:00 0 
+b0e80000-e0000000 ---p 00000000 00:00 0 
+e0000000-100000000 rw-p 00000000 00:00 0 
+100000000-101900000 rw-p 00000000 00:00 0 
+101900000-140000000 ---p 00000000 00:00 0 
+7fea8c000000-7fea8c063000 rw-p 00000000 00:00 0 
+7fea8c063000-7fea90000000 ---p 00000000 00:00 0 
+7fea92802000-7fea92942000 rw-p 00000000 00:00 0 
+7fea92942000-7fea92a02000 ---p 00000000 00:00 0 
+7fea92a02000-7fea92c02000 rw-p 00000000 00:00 0 
+7fea92c02000-7fea92c05000 ---p 00000000 00:00 0 
+7fea92c05000-7fea92d03000 rw-p 00000000 00:00 0 
+7fea92d03000-7fea92d06000 ---p 00000000 00:00 0 
+7fea92d06000-7fea92e04000 rw-p 00000000 00:00 0 
+7fea92e04000-7fea92e07000 ---p 00000000 00:00 0 
+7fea92e07000-7fea92f05000 rw-p 00000000 00:00 0 
+7fea92f05000-7fea92f08000 ---p 00000000 00:00 0 
+7fea92f08000-7fea93206000 rw-p 00000000 00:00 0 
+7fea93206000-7fea93209000 ---p 00000000 00:00 0 
+7fea93209000-7fea93307000 rw-p 00000000 00:00 0 
+7fea93307000-7fea9330a000 ---p 00000000 00:00 0 
+7fea9330a000-7fea93408000 rw-p 00000000 00:00 0 
+7fea93408000-7fea9340b000 ---p 00000000 00:00 0 
+7fea9340b000-7fea93709000 rw-p 00000000 00:00 0 
+7fea93709000-7fea93909000 rw-p 00000000 00:00 0 
+7fea93909000-7fea93b09000 rw-p 00000000 00:00 0 
+7fea93b09000-7fea93d09000 rw-p 00000000 00:00 0 
+7fea93d09000-7fea93f09000 rw-p 00000000 00:00 0 
+7fea93f09000-7fea94109000 rw-p 00000000 00:00 0 
+7fea94109000-7fea94309000 rw-p 00000000 00:00 0 
+7fea94309000-7fea94509000 rw-p 00000000 00:00 0 
+7fea94509000-7fea94709000 rw-p 00000000 00:00 0 
+7fea94709000-7fea94909000 rw-p 00000000 00:00 0 
+7fea94909000-7fea94b09000 rw-p 00000000 00:00 0 
+7fea94b09000-7fea94d09000 rw-p 00000000 00:00 0 
+7fea94d09000-7fea94f09000 rw-p 00000000 00:00 0 
+7fea94f09000-7fea95109000 rw-p 00000000 00:00 0 
+7fea95109000-7fea95309000 rw-p 00000000 00:00 0 
+7fea95309000-7fea95509000 rw-p 00000000 00:00 0 
+7fea95509000-7fea95709000 rw-p 00000000 00:00 0 
+7fea95709000-7fea95909000 rw-p 00000000 00:00 0 
+7fea95909000-7fea95b09000 rw-p 00000000 00:00 0 
+7fea95b09000-7fea95d09000 rw-p 00000000 00:00 0 
+7fea95d09000-7fea95f09000 rw-p 00000000 00:00 0 
+7fea95f09000-7fea96109000 rw-p 00000000 00:00 0 
+7fea96109000-7fea96309000 rw-p 00000000 00:00 0 
+7fea96309000-7fea96509000 rw-p 00000000 00:00 0 
+7fea96509000-7fea96709000 rw-p 00000000 00:00 0 
+7fea96709000-7fea96909000 rw-p 00000000 00:00 0 
+7fea96909000-7fea96b09000 rw-p 00000000 00:00 0 
+7fea96b09000-7fea96d09000 rw-p 00000000 00:00 0 
+7fea96d09000-7fea96f09000 rw-p 00000000 00:00 0 
+7fea96f09000-7fea97109000 rw-p 00000000 00:00 0 
+7fea97109000-7fea97309000 rw-p 00000000 00:00 0 
+7fea97309000-7fea97509000 rw-p 00000000 00:00 0 
+7fea97509000-7fea97709000 rw-p 00000000 00:00 0 
+7fea97709000-7fea97909000 rw-p 00000000 00:00 0 
+7fea97909000-7fea97b09000 rw-p 00000000 00:00 0 
+7fea97b09000-7fea97d09000 rw-p 00000000 00:00 0 
+7fea97d09000-7fea97f09000 rw-p 00000000 00:00 0 
+7fea97f09000-7fea98109000 rw-p 00000000 00:00 0 
+7fea98109000-7fea98309000 rw-p 00000000 00:00 0 
+7fea98309000-7fea98509000 rw-p 00000000 00:00 0 
+7fea98509000-7fea98709000 rw-p 00000000 00:00 0 
+7fea98709000-7fea98909000 rw-p 00000000 00:00 0 
+7fea98909000-7fea98b09000 rw-p 00000000 00:00 0 
+7fea98b09000-7fea98d09000 rw-p 00000000 00:00 0 
+7fea98d09000-7fea98d0c000 ---p 00000000 00:00 0 
+7fea98d0c000-7fea98e0a000 rw-p 00000000 00:00 0 
+7fea98e0a000-7fea98e0d000 ---p 00000000 00:00 0 
+7fea98e0d000-7fea98f0b000 rw-p 00000000 00:00 0 
+7fea98f0b000-7fea98f0e000 ---p 00000000 00:00 0 
+7fea98f0e000-7fea9900c000 rw-p 00000000 00:00 0 
+7fea9900c000-7fea9900f000 ---p 00000000 00:00 0 
+7fea9900f000-7fea9910d000 rw-p 00000000 00:00 0 
+7fea9910d000-7fea99110000 ---p 00000000 00:00 0 
+7fea99110000-7fea9920e000 rw-p 00000000 00:00 0 
+7fea9920e000-7fea99211000 ---p 00000000 00:00 0 
+7fea99211000-7fea9930f000 rw-p 00000000 00:00 0 
+7fea9930f000-7fea99312000 ---p 00000000 00:00 0 
+7fea99312000-7fea99410000 rw-p 00000000 00:00 0 
+7fea99410000-7fea99413000 ---p 00000000 00:00 0 
+7fea99413000-7fea99511000 rw-p 00000000 00:00 0 
+7fea99511000-7fea99514000 ---p 00000000 00:00 0 
+7fea99514000-7fea99612000 rw-p 00000000 00:00 0 
+7fea99612000-7fea99615000 ---p 00000000 00:00 0 
+7fea99615000-7fea9964b000 rw-p 00000000 00:00 0 
+7fea9964b000-7fea9964e000 ---p 00000000 00:00 0 
+7fea9964e000-7fea99684000 rw-p 00000000 00:00 0 
+7fea99684000-7fea99687000 ---p 00000000 00:00 0 
+7fea99687000-7fea996bd000 rw-p 00000000 00:00 0 
+7fea996bd000-7fea996c0000 ---p 00000000 00:00 0 
+7fea996c0000-7fea996f6000 rw-p 00000000 00:00 0 
+7fea996f6000-7fea996f9000 ---p 00000000 00:00 0 
+7fea996f9000-7fea997f7000 rw-p 00000000 00:00 0 
+7fea997f7000-7fea997fa000 ---p 00000000 00:00 0 
+7fea997fa000-7fea998f8000 rw-p 00000000 00:00 0 
+7fea998f8000-7fea998fb000 ---p 00000000 00:00 0 
+7fea998fb000-7fea999f9000 rw-p 00000000 00:00 0 
+7fea999f9000-7fea999fc000 ---p 00000000 00:00 0 
+7fea999fc000-7fea99cfa000 rw-p 00000000 00:00 0 
+7fea99cfa000-7fea99cfd000 ---p 00000000 00:00 0 
+7fea99cfd000-7fea99dfb000 rw-p 00000000 00:00 0 
+7fea99dfb000-7fea99dfe000 ---p 00000000 00:00 0 
+7fea99dfe000-7fea99efc000 rw-p 00000000 00:00 0 
+7fea99efc000-7fea99eff000 ---p 00000000 00:00 0 
+7fea99eff000-7fea99ffd000 rw-p 00000000 00:00 0 
+7fea99ffd000-7fea9a000000 ---p 00000000 00:00 0 
+7fea9a000000-7fea9a0fe000 rw-p 00000000 00:00 0 
+7fea9a0fe000-7fea9a101000 ---p 00000000 00:00 0 
+7fea9a101000-7fea9a3ff000 rw-p 00000000 00:00 0 
+7fea9a3ff000-7fea9a5ff000 rw-p 00000000 00:00 0 
+7fea9a5ff000-7fea9a7ff000 rw-p 00000000 00:00 0 
+7fea9a7ff000-7fea9a9ff000 rw-p 00000000 00:00 0 
+7fea9a9ff000-7fea9abff000 rw-p 00000000 00:00 0 
+7fea9abff000-7fea9ac02000 ---p 00000000 00:00 0 
+7fea9ac02000-7fea9af00000 rw-p 00000000 00:00 0 
+7fea9af00000-7fea9af01000 r--s 00005000 08:01 6947477                    /home/james/.gradle/caches/jars-3/9174d0d367bafcebcd239806f93d90dc/istack-commons-runtime-2.21.jar
+7fea9af01000-7fea9af03000 r--s 0000f000 08:01 6947475                    /home/james/.gradle/caches/jars-3/406a870a988b3914ac54eb29fd01fdfd/txw2-2.2.11.jar
+7fea9af03000-7fea9af06000 r--s 00016000 08:01 6947473                    /home/james/.gradle/caches/jars-3/ce70df06e313ae5b1ad4fa1bcd386d6f/jaxb-api-2.2.12-b140109.1041.jar
+7fea9af06000-7fea9af0b000 r--s 00044000 08:01 6947471                    /home/james/.gradle/caches/jars-3/5ebe152791cc4289b54232ea17c6fb1b/FastInfoset-1.2.13.jar
+7fea9af0b000-7fea9af0d000 r--s 00007000 08:01 6947469                    /home/james/.gradle/caches/jars-3/2475591a5e42dd51c58dd218cd998894/stax-ex-1.7.7.jar
+7fea9af0d000-7fea9af12000 r--s 00021000 08:01 6947467                    /home/james/.gradle/caches/jars-3/e95a9589df4f9a6c34d088f900ea6226/jaxb-core-2.2.11.jar
+7fea9af12000-7fea9af18000 r--s 00033000 08:01 6947465                    /home/james/.gradle/caches/jars-3/6d14fda7961c06a1d3f65b914902aaca/commons-codec-1.6.jar
+7fea9af18000-7fea9af1a000 r--s 0000d000 08:01 6947463                    /home/james/.gradle/caches/jars-3/b958e1f87f076c583b5ee3dbc28a0bda/commons-logging-1.1.1.jar
+7fea9af1a000-7fea9af20000 r--s 00032000 08:01 6947461                    /home/james/.gradle/caches/jars-3/81dc9d67dc6677389b34cb21689a42ad/httpcore-4.2.5.jar
+7fea9af20000-7fea9af31000 r--s 000eb000 08:01 6947459                    /home/james/.gradle/caches/jars-3/e2fa0d2d55e3e3991520cbe8387ccd2a/jaxb-runtime-2.2.11.jar
+7fea9af31000-7fea9af34000 r--s 00011000 08:01 6947457                    /home/james/.gradle/caches/jars-3/bfacc0a383370eff24c8eb8cf1220418/javax.activation-1.2.0.jar
+7fea9af34000-7fea9af36000 r--s 00003000 08:01 6947405                    /home/james/.gradle/caches/jars-3/461985c1f4e307944bd7490eedc627b4/annotations-13.0.jar
+7fea9af36000-7fea9af37000 r--s 0000a000 08:01 6947455                    /home/james/.gradle/caches/jars-3/4352e397eb3e8adfc2bd942162e1dc9c/kxml2-2.3.0.jar
+7fea9af37000-7fea9af39000 r--s 00005000 08:01 6947453                    /home/james/.gradle/caches/jars-3/5a14ce4d8ba906c5d0043250e8894139/httpmime-4.1.jar
+7fea9af39000-7fea9af43000 r--s 00061000 08:01 6947451                    /home/james/.gradle/caches/jars-3/d42bf4fcccc63f349c6810abfcd8877a/httpclient-4.2.6.jar
+7fea9af43000-7fea9af4c000 r--s 00064000 08:01 6947449                    /home/james/.gradle/caches/jars-3/6d1a19fc7bf82a43f3c9fa5a512a45ec/commons-compress-1.12.jar
+7fea9af4c000-7fea9af4d000 r--s 00000000 08:01 6947447                    /home/james/.gradle/caches/jars-3/da76d16a7380e837619b3393622b331c/animal-sniffer-annotations-1.14.jar
+7fea9af4d000-7fea9af4f000 r--s 00001000 08:01 6947445                    /home/james/.gradle/caches/jars-3/e9abfccb43bd544f77a0d92ec9afadd7/j2objc-annotations-1.1.jar
+7fea9af4f000-7fea9af52000 r--s 00006000 08:01 6947443                    /home/james/.gradle/caches/jars-3/258dd0c3148622e9c507fcb6c0649341/jsr305-1.3.9.jar
+7fea9af52000-7fea9af62000 r--s 000d6000 08:01 6947441                    /home/james/.gradle/caches/jars-3/3e3040dc2daab2a7347504eb413f0df5/proguard-base-5.3.3.jar
+7fea9af62000-7fea9af72000 r--s 000d4000 08:01 3558487                    /home/james/.gradle/caches/jars-3/5d46a7bc936f4bc0d131fbf26d5d24b2/kotlin-stdlib-1.2.0.jar
+7fea9af72000-7fea9af73000 r--s 00000000 08:01 6947351                    /home/james/.gradle/caches/jars-3/2c3b89536fa7a179e76f6d27394a50cd/kotlin-stdlib-jre7-1.2.0.jar
+7fea9af73000-7fea9af74000 r--s 00001000 08:01 6947439                    /home/james/.gradle/caches/jars-3/448b11fbdbf1b4ed4ce4c753e1116683/annotations-26.1.0.jar
+7fea9af74000-7fea9af79000 r--s 00034000 08:01 6947437                    /home/james/.gradle/caches/jars-3/0bc928489d6453805d3269cd57bfdfb9/gson-2.7.jar
+7fea9af79000-7fea9af7b000 r--s 00015000 08:01 6947435                    /home/james/.gradle/caches/jars-3/57b6ff4becf3541fcbf2bf20b3550d5b/javapoet-1.8.0.jar
+7fea9af7b000-7fea9af7e000 r--s 00033000 08:01 6947433                    /home/james/.gradle/caches/jars-3/891a605f5da1268301fcb1a7ef45692d/juniversalchardet-1.0.3.jar
+7fea9af7e000-7fea9af82000 r--s 0002a000 08:01 6947431                    /home/james/.gradle/caches/jars-3/cd2efe6fe5cb7c2f6f78581f68a8a39b/commons-io-2.4.jar
+7fea9af82000-7fea9af99000 r--s 00154000 08:01 6947429                    /home/james/.gradle/caches/jars-3/a65edfa7b9842d93dc7c423619bf678f/antlr4-4.5.3.jar
+7fea9af99000-7fea9af9a000 r--s 00003000 08:01 6947427                    /home/james/.gradle/caches/jars-3/4ef7d5b8ecea940b560e2eeac4bee969/baseLibrary-3.1.0.jar
+7fea9af9a000-7fea9afce000 r--s 00239000 08:01 3558485                    /home/james/.gradle/caches/jars-3/9b2ad6e490dafa7b23339296a2c97f4e/kotlin-reflect-1.2.0.jar
+7fea9afce000-7fea9afcf000 r--s 00003000 08:01 6947425                    /home/james/.gradle/caches/jars-3/886874542f908119a3606ae736c6e667/json-simple-1.1.jar
+7fea9afcf000-7fea9b0f4000 r--s 00f5d000 08:01 6947423                    /home/james/.gradle/caches/jars-3/a007888cf940169896c734d0e8fa7bf1/fastutil-7.2.0.jar
+7fea9b0f4000-7fea9b13f000 r--s 002ff000 08:01 6947421                    /home/james/.gradle/caches/jars-3/e0daa3dd76e278d343c26d2295b4574d/bcprov-jdk15on-1.56.jar
+7fea9b13f000-7fea9b150000 r--s 00097000 08:01 6947419                    /home/james/.gradle/caches/jars-3/a13765522a6a2719251f3c45666b012b/bcpkix-jdk15on-1.56.jar
+7fea9b150000-7fea9b152000 r--s 00002000 08:01 6947417                    /home/james/.gradle/caches/jars-3/c758fa8868209f4d03b01225e1ed2001/javawriter-2.5.0.jar
+7fea9b152000-7fea9b157000 r--s 0003f000 08:01 6947415                    /home/james/.gradle/caches/jars-3/637dddd3a455b424cb71e22869bcfbb3/apksig-3.1.0.jar
+7fea9b157000-7fea9b15a000 r--s 00007000 08:01 6947413                    /home/james/.gradle/caches/jars-3/94685923c70c866116ecea8ec519836d/builder-model-3.1.0.jar
+7fea9b15a000-7fea9b15b000 r--s 00002000 08:01 6947403                    /home/james/.gradle/caches/jars-3/41de841032328c6af5380db0a760d6f1/error_prone_annotations-2.1.2.jar
+7fea9b15b000-7fea9b16a000 r--s 00143000 08:01 6947401                    /home/james/.gradle/caches/jars-3/46c24996d88156a9bb38a9e8cb9faabe/protobuf-java-3.4.0.jar
+7fea9b16a000-7fea9b180000 r--s 001f6000 08:01 6947399                    /home/james/.gradle/caches/jars-3/38de0e237a05239ab3cbef50f73e01c2/protos-26.1.0.jar
+7fea9b180000-7fea9b186000 r--s 0007f000 08:01 6947397                    /home/james/.gradle/caches/jars-3/c3dfd1b0c481d44bd93b7a0db2d27496/aapt2-proto-0.1.0.jar
+7fea9b186000-7fea9b1b6000 r--s 00245000 08:01 6947395                    /home/james/.gradle/caches/jars-3/3c96b3800bef5a9d130642a5fce696b5/guava-22.0.jar
+7fea9b1b6000-7fea9b1ba000 r--s 0002f000 08:01 6947393                    /home/james/.gradle/caches/jars-3/de8d73ecf39301704b1c7f034cd2130b/jimfs-1.1.jar
+7fea9b1ba000-7fea9b1be000 r--s 00029000 08:01 6947391                    /home/james/.gradle/caches/jars-3/4a8e7885832da86be9132c7878d561e3/common-26.1.0.jar
+7fea9b1be000-7fea9b1c0000 r--s 00006000 08:01 6947389                    /home/james/.gradle/caches/jars-3/450446b0c1cac6b6b7f72fa33cb8ffa3/dvlib-26.1.0.jar
+7fea9b1c0000-7fea9b1c3000 r--s 00014000 08:01 6947387                    /home/james/.gradle/caches/jars-3/b47e733cf1733abda8a0543dbd58049f/layoutlib-api-26.1.0.jar
+7fea9b1c3000-7fea9b1c4000 r--s 00005000 08:01 6947385                    /home/james/.gradle/caches/jars-3/1d4ecd088a3bedebad93bc06cbb02f4c/shared-26.1.0.jar
+7fea9b1c4000-7fea9b1c6000 r--s 00004000 08:01 6947383                    /home/james/.gradle/caches/jars-3/c6a3249035ffbe9fc954c0a7a02852c1/tracker-26.1.0.jar
+7fea9b1c6000-7fea9b1cc000 r--s 0004d000 08:01 6947381                    /home/james/.gradle/caches/jars-3/ed918470468e55a7c2b32fc267f76b73/ddmlib-26.1.0.jar
+7fea9b1cc000-7fea9b1cd000 r--s 00003000 08:01 6947379                    /home/james/.gradle/caches/jars-3/bc9ac0ddee3722002cf42af905829d44/builder-test-api-3.1.0.jar
+7fea9b1cd000-7fea9b1cf000 r--s 0000f000 08:01 6947377                    /home/james/.gradle/caches/jars-3/f95469bfd6794589c9fe7bdfac7a8e2f/protobuf-java-util-3.4.0.jar
+7fea9b1cf000-7fea9b1ee000 r--s 0016b000 08:01 6947375                    /home/james/.gradle/caches/jars-3/0c33c560e717c75a0f8c6f91c6217da3/auto-value-1.5.2.jar
+7fea9b1ee000-7fea9b1f0000 r--s 00002000 08:01 6947373                    /home/james/.gradle/caches/jars-3/aef91c30517375c16ce5441e84be0f5e/proguard-gradle-5.3.3.jar
+7fea9b1f0000-7fea9b1f2000 r--s 0000f000 08:01 6947371                    /home/james/.gradle/caches/jars-3/c93e74da8ceb3a75ff5456599f439b40/jopt-simple-4.9.jar
+7fea9b1f2000-7fea9b1f4000 r--s 0000c000 08:01 6947369                    /home/james/.gradle/caches/jars-3/0ede7333fe09a80fbc4fe1a0c9b586cd/asm-5.1.jar
+7fea9b1f4000-7fea9b1f6000 r--s 00006000 08:01 6947367                    /home/james/.gradle/caches/jars-3/bc49c094a2443fb7fadba7269dffb02a/asm-tree-5.1.jar
+7fea9b1f6000-7fea9b1f7000 r--s 0000a000 08:01 6947365                    /home/james/.gradle/caches/jars-3/01be4c5f22346cb9b30cf8da870a55d5/asm-util-5.1.jar
+7fea9b1f7000-7fea9b1f9000 r--s 0000a000 08:01 6947363                    /home/james/.gradle/caches/jars-3/08cdd41fe1f26baeb39b42fea9560740/asm-commons-5.1.jar
+7fea9b1f9000-7fea9b1fa000 r--s 00004000 08:01 6947361                    /home/james/.gradle/caches/jars-3/0c311c56cf8ab286a5dc313445596433/asm-analysis-5.1.jar
+7fea9b1fa000-7fea9b1fb000 r--s 00000000 08:01 6947359                    /home/james/.gradle/caches/jars-3/985172a195bdfbab4cdfffc88b22ac93/transform-api-2.0.0-deprecated-use-gradle-api.jar
+7fea9b1fb000-7fea9b1fc000 r--s 00002000 08:01 6947349                    /home/james/.gradle/caches/jars-3/6114f06b482e8d3f7601c1f6ae428e24/kotlin-stdlib-jre8-1.2.0.jar
+7fea9b1fc000-7fea9b202000 r--s 00030000 08:01 6947347                    /home/james/.gradle/caches/jars-3/99f855caef549ced56426d5a292d3b56/repository-26.1.0.jar
+7fea9b202000-7fea9b20c000 r--s 0009c000 08:01 6947345                    /home/james/.gradle/caches/jars-3/a08650a0a68110294f0d06d3af9c13fb/sdklib-26.1.0.jar
+7fea9b20c000-7fea9b21e000 r--s 0010b000 08:01 6947343                    /home/james/.gradle/caches/jars-3/e6b62747353b3fef6584a9238a1d04ec/sdk-common-26.1.0.jar
+7fea9b21e000-7fea9b221000 r--s 0002a000 08:01 6947341                    /home/james/.gradle/caches/jars-3/d117c66e4b77db1ef149c6df680597e5/manifest-merger-26.1.0.jar
+7fea9b221000-7fea9b227000 r--s 00040000 08:01 6947339                    /home/james/.gradle/caches/jars-3/db1bf4d8d25295ba78617f7294f60e6c/compilerCommon-3.1.0.jar
+7fea9b227000-7fea9b3f9000 r--s 01887000 08:01 6947333                    /home/james/.gradle/caches/jars-3/f6a21295740e2edde905952a27d98168/builder-3.1.0.jar
+7fea9b3f9000-7fea9b400000 r--s 00069000 08:01 6947323                    /home/james/.gradle/caches/jars-3/47a790095b49051b61187c1d8b63d8fd/bundletool-0.1.0-alpha01.jar
+7fea9b400000-7fea9b600000 rw-p 00000000 00:00 0 
+7fea9b600000-7fea9b800000 rw-p 00000000 00:00 0 
+7fea9b800000-7fea9ba00000 rw-p 00000000 00:00 0 
+7fea9ba00000-7fea9bc00000 rw-p 00000000 00:00 0 
+7fea9bc00000-7fea9be00000 rw-p 00000000 00:00 0 
+7fea9be00000-7fea9c000000 rw-p 00000000 00:00 0 
+7fea9c000000-7fea9c03a000 rw-p 00000000 00:00 0 
+7fea9c03a000-7feaa0000000 ---p 00000000 00:00 0 
+7feaa0000000-7feaa0021000 rw-p 00000000 00:00 0 
+7feaa0021000-7feaa4000000 ---p 00000000 00:00 0 
+7feaa4000000-7feaa4100000 rw-p 00000000 00:00 0 
+7feaa4100000-7feaa8000000 ---p 00000000 00:00 0 
+7feaa8000000-7feaa8046000 rw-p 00000000 00:00 0 
+7feaa8046000-7feaac000000 ---p 00000000 00:00 0 
+7feaac000000-7feaac0b1000 rw-p 00000000 00:00 0 
+7feaac0b1000-7feab0000000 ---p 00000000 00:00 0 
+7feab0000000-7feab0048000 rw-p 00000000 00:00 0 
+7feab0048000-7feab4000000 ---p 00000000 00:00 0 
+7feab4000000-7feab4038000 rw-p 00000000 00:00 0 
+7feab4038000-7feab8000000 ---p 00000000 00:00 0 
+7feab8000000-7feab8021000 rw-p 00000000 00:00 0 
+7feab8021000-7feabc000000 ---p 00000000 00:00 0 
+7feabc000000-7feabc021000 rw-p 00000000 00:00 0 
+7feabc021000-7feac0000000 ---p 00000000 00:00 0 
+7feac0000000-7feac0026000 rw-p 00000000 00:00 0 
+7feac0026000-7feac4000000 ---p 00000000 00:00 0 
+7feac4000000-7feac57f3000 rw-p 00000000 00:00 0 
+7feac57f3000-7feac8000000 ---p 00000000 00:00 0 
+7feac8000000-7feaca6d9000 rw-p 00000000 00:00 0 
+7feaca6d9000-7feacc000000 ---p 00000000 00:00 0 
+7feacc000000-7feacc004000 r--s 00013000 08:01 6947337                    /home/james/.gradle/caches/jars-3/acccff52408ea896537a1b5f24643a1f/gradle-api-3.1.0.jar
+7feacc004000-7feacc005000 r--s 00004000 08:01 6947335                    /home/james/.gradle/caches/jars-3/42ec567875dd5798df8a4bf4a260a53d/lint-gradle-api-26.1.0.jar
+7feacc005000-7feacc02f000 r--s 0027d000 08:01 6947321                    /home/james/.gradle/caches/jars-3/3d0252265a475a595f9665b270fa498c/gradle-core-3.1.0.jar
+7feacc02f000-7feacc032000 r--s 0001a000 08:01 6947315                    /home/james/.gradle/caches/jars-3/d6a060f58f8e85163ce537aacb0a7bad/gradle-3.1.0.jar
+7feacc032000-7feacc232000 rw-p 00000000 00:00 0 
+7feacc232000-7feacc432000 rw-p 00000000 00:00 0 
+7feacc432000-7feacc632000 rw-p 00000000 00:00 0 
+7feacc632000-7feacc635000 ---p 00000000 00:00 0 
+7feacc635000-7feacc933000 rw-p 00000000 00:00 0 
+7feacc933000-7feacc936000 ---p 00000000 00:00 0 
+7feacc936000-7feaccc34000 rw-p 00000000 00:00 0 
+7feaccc34000-7feaccc35000 r--s 00005000 08:01 2360461                    /home/james/.gradle/caches/modules-2/files-2.1/com.sun.istack/istack-commons-runtime/2.21/c969d8f15c467f0ef7d7b04889afbe7b5d48e22f/istack-commons-runtime-2.21.jar
+7feaccc35000-7feaccc37000 r--s 0000f000 08:01 2360460                    /home/james/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/txw2/2.2.11/2df047d8c187a62f2177bf6013f1f9786cdfc8a2/txw2-2.2.11.jar
+7feaccc37000-7feaccc3a000 r--s 00016000 08:01 2360458                    /home/james/.gradle/caches/modules-2/files-2.1/javax.xml.bind/jaxb-api/2.2.12-b140109.1041/7ed0e0d01198614194d56dfb03d9d95aa311824c/jaxb-api-2.2.12-b140109.1041.jar
+7feaccc3a000-7feaccc3f000 r--s 00044000 08:01 2360453                    /home/james/.gradle/caches/modules-2/files-2.1/com.sun.xml.fastinfoset/FastInfoset/1.2.13/98f56b9354e27bd2941cc5d461344e240ae51ae/FastInfoset-1.2.13.jar
+7feaccc3f000-7feaccc41000 r--s 00007000 08:01 2360452                    /home/james/.gradle/caches/modules-2/files-2.1/org.jvnet.staxex/stax-ex/1.7.7/18bed5a0da27a6b43efe01282f2dc911b1cb3a72/stax-ex-1.7.7.jar
+7feaccc41000-7feaccc46000 r--s 00021000 08:01 2360451                    /home/james/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-core/2.2.11/f5745049f5fb9cb9d9b5f513c207727f475983e9/jaxb-core-2.2.11.jar
+7feaccc46000-7feaccc4c000 r--s 00033000 08:01 3289022                    /home/james/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar
+7feaccc4c000-7feaccc4e000 r--s 0000d000 08:01 3289020                    /home/james/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar
+7feaccc4e000-7feaccc54000 r--s 00032000 08:01 3289021                    /home/james/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.2.5/472f0f5f8dba5d1962cb9d7739feed739a31c30d/httpcore-4.2.5.jar
+7feaccc54000-7feaccc65000 r--s 000eb000 08:01 2360450                    /home/james/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.2.11/65510afc78679e347b0d774617a97fedac94f8/jaxb-runtime-2.2.11.jar
+7feaccc65000-7feaccc68000 r--s 00011000 08:01 2360449                    /home/james/.gradle/caches/modules-2/files-2.1/com.sun.activation/javax.activation/1.2.0/bf744c1e2776ed1de3c55c8dac1057ec331ef744/javax.activation-1.2.0.jar
+7feaccc68000-7feaccc6a000 r--s 00003000 08:01 3289025                    /home/james/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar
+7feaccc6a000-7feaccc6b000 r--s 0000a000 08:01 3289014                    /home/james/.gradle/caches/modules-2/files-2.1/net.sf.kxml/kxml2/2.3.0/ccbc77a5fd907ef863c29f3596c6f54ffa4e9442/kxml2-2.3.0.jar
+7feaccc6b000-7feaccc6d000 r--s 00005000 08:01 3289012                    /home/james/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.1/9ba2dcdf94ce35c8a8e9bff242db0618ca932e92/httpmime-4.1.jar
+7feaccc6d000-7feaccc77000 r--s 00061000 08:01 3289013                    /home/james/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.2.6/e4ca30a6a3a075053a61c6fc850d2432dc012ba7/httpclient-4.2.6.jar
+7feaccc77000-7feaccc80000 r--s 00064000 08:01 3289011                    /home/james/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.12/84caa68576e345eb5e7ae61a0e5a9229eb100d7b/commons-compress-1.12.jar
+7feaccc80000-7feaccc81000 r--s 00000000 08:01 3289018                    /home/james/.gradle/caches/modules-2/files-2.1/org.codehaus.mojo/animal-sniffer-annotations/1.14/775b7e22fb10026eed3f86e8dc556dfafe35f2d5/animal-sniffer-annotations-1.14.jar
+7feaccc81000-7feaccc83000 r--s 00001000 08:01 3289017                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/1.1/976d8d30bebc251db406f2bdb3eb01962b5685b3/j2objc-annotations-1.1.jar
+7feaccc83000-7feaccc86000 r--s 00006000 08:01 3289015                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar
+7feaccc86000-7feaccc96000 r--s 000d6000 08:01 3289009                    /home/james/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-base/5.3.3/988b6b0636ce343d4962b3b37f6319dcc6e99a61/proguard-base-5.3.3.jar
+7feaccc96000-7feaccca6000 r--s 000d4000 08:01 2376785                    /home/james/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.2.0/25eb440d6eeb9fc60299121020fe726eb2100d03/kotlin-stdlib-1.2.0.jar
+7feaccca6000-7feaccca7000 r--s 00000000 08:01 2360430                    /home/james/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.2.0/ec8b969e26fbcf2265a4d1a1539c4d1d4c5af380/kotlin-stdlib-jre7-1.2.0.jar
+7feaccca7000-7feaccca8000 r--s 00001000 08:01 2360448                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools/annotations/26.1.0/dfede8a6180c47422a92717747863fa1263e2834/annotations-26.1.0.jar
+7feaccca8000-7feacccad000 r--s 00034000 08:01 2360447                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar
+7feacccad000-7feacccaf000 r--s 00015000 08:01 2360445                    /home/james/.gradle/caches/modules-2/files-2.1/com.squareup/javapoet/1.8.0/e858dc62ef484048540d27d36f3ec2177a3fa9b1/javapoet-1.8.0.jar
+7feacccaf000-7feacccb2000 r--s 00033000 08:01 3289008                    /home/james/.gradle/caches/modules-2/files-2.1/com.googlecode.juniversalchardet/juniversalchardet/1.0.3/cd49678784c46aa8789c060538e0154013bb421b/juniversalchardet-1.0.3.jar
+7feacccb2000-7feacccb6000 r--s 0002a000 08:01 3289006                    /home/james/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.4/b1b6ea3b7e4aa4f492509a4952029cd8e48019ad/commons-io-2.4.jar
+7feacccb6000-7feaccccd000 r--s 00154000 08:01 3289005                    /home/james/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4/4.5.3/f35db7e4b2446e4174ba6a73db7bd6b3e6bb5da1/antlr4-4.5.3.jar
+7feaccccd000-7feacccce000 r--s 00003000 08:01 2360446                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.databinding/baseLibrary/3.1.0/f459d107e4331b04b9befd47ab89dfb8fa7aa61d/baseLibrary-3.1.0.jar
+7feacccce000-7feaccd02000 r--s 00239000 08:01 2376784                    /home/james/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.2.0/4bbda3b5425aa38a9f6960468a29c5ef3e8a28c9/kotlin-reflect-1.2.0.jar
+7feaccd02000-7feaccd03000 r--s 00003000 08:01 3288999                    /home/james/.gradle/caches/modules-2/files-2.1/com.googlecode.json-simple/json-simple/1.1/5e303a03d04e6788dddfa3655272580ae0fc13bb/json-simple-1.1.jar
+7feaccd03000-7feacce28000 r--s 00f5d000 08:01 3288998                    /home/james/.gradle/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/7.2.0/5ad3a2bb04143f70aa0765fc29fc29571a7d6b34/fastutil-7.2.0.jar
+7feacce28000-7feacce73000 r--s 002ff000 08:01 3288996                    /home/james/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk15on/1.56/a153c6f9744a3e9dd6feab5e210e1c9861362ec7/bcprov-jdk15on-1.56.jar
+7feacce73000-7feacce84000 r--s 00097000 08:01 3288997                    /home/james/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk15on/1.56/4648af70268b6fdb24674fb1fd7c1fcc73db1231/bcpkix-jdk15on-1.56.jar
+7feacce84000-7feacce86000 r--s 00002000 08:01 3288994                    /home/james/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.5.0/81241ff7078ef14f42ea2a8995fa09c096256e6b/javawriter-2.5.0.jar
+7feacce86000-7feacce8b000 r--s 0003f000 08:01 2360444                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/apksig/3.1.0/94281878deacd451a0064dc69e866ad108ca158f/apksig-3.1.0.jar
+7feacce8b000-7feacce8e000 r--s 00007000 08:01 2360443                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-model/3.1.0/7103d1d71aa7185f1d377f6098d50ffb6494dafe/builder-model-3.1.0.jar
+7feacce8e000-7feacce8f000 r--s 00002000 08:01 2360441                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.1.2/6dcc08f90f678ac33e5ef78c3c752b6f59e63e0c/error_prone_annotations-2.1.2.jar
+7feacce8f000-7feacce9e000 r--s 00143000 08:01 2360442                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.4.0/b32aba0cbe737a4ca953f71688725972e3ee927c/protobuf-java-3.4.0.jar
+7feacce9e000-7feacceb4000 r--s 001f6000 08:01 2360440                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/protos/26.1.0/1e2d35fcc1668730a6c6be29e61fbd059278f243/protos-26.1.0.jar
+7feacceb4000-7feacceba000 r--s 0007f000 08:01 2360439                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/aapt2-proto/0.1.0/d1eb93a21a8d3590c3bfac574a8b6dffb2dbd21c/aapt2-proto-0.1.0.jar
+7feacceba000-7feacceea000 r--s 00245000 08:01 3289004                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/22.0/3564ef3803de51fb0530a8377ec6100b33b0d073/guava-22.0.jar
+7feacceea000-7feacceee000 r--s 0002f000 08:01 3289001                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.jimfs/jimfs/1.1/8fbd0579dc68aba6186935cc1bee21d2f3e7ec1c/jimfs-1.1.jar
+7feacceee000-7feaccef2000 r--s 00029000 08:01 2360438                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools/common/26.1.0/e1a8ac055f330fb0e7c8a4b5edecb578883b8bf3/common-26.1.0.jar
+7feaccef2000-7feaccef4000 r--s 00006000 08:01 2360437                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools/dvlib/26.1.0/eb04b3991369c83e7a15da35fe02988eec583982/dvlib-26.1.0.jar
+7feaccef4000-7feaccef7000 r--s 00014000 08:01 2360436                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.layoutlib/layoutlib-api/26.1.0/b03b074c97afbc06d8b93336f65be0b3ac0cd07c/layoutlib-api-26.1.0.jar
+7feaccef7000-7feaccef8000 r--s 00005000 08:01 2360435                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/shared/26.1.0/a67c088b2bccf01342d4258f98259b39156e7803/shared-26.1.0.jar
+7feaccef8000-7feaccefa000 r--s 00004000 08:01 2360434                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.analytics-library/tracker/26.1.0/583f8f9c850878264ef658c848f616da86c6a47e/tracker-26.1.0.jar
+7feaccefa000-7feaccf00000 r--s 0004d000 08:01 2360433                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.ddms/ddmlib/26.1.0/998c179991f12a3c13d8e0122caf7b8b9f1406a4/ddmlib-26.1.0.jar
+7feaccf00000-7feaccf01000 r--s 00003000 08:01 2360431                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder-test-api/3.1.0/86320e296592f2795a8454eb94eaa0c0379184b9/builder-test-api-3.1.0.jar
+7feaccf01000-7feaccf03000 r--s 0000f000 08:01 2360432                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java-util/3.4.0/96aba8ab71c16018c6adf66771ce15c6491bc0fe/protobuf-java-util-3.4.0.jar
+7feaccf03000-7feaccf22000 r--s 0016b000 08:01 2360463                    /home/james/.gradle/caches/modules-2/files-2.1/com.google.auto.value/auto-value/1.5.2/1b94ab7ec707e2220a0d1a7517488d1843236345/auto-value-1.5.2.jar
+7feaccf22000-7feaccf24000 r--s 00002000 08:01 3288983                    /home/james/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.3.3/ad23a0505f58d0dfc95bb1472decc397460406c9/proguard-gradle-5.3.3.jar
+7feaccf24000-7feaccf26000 r--s 0000f000 08:01 3288982                    /home/james/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/4.9/ee9e9eaa0a35360dcfeac129ff4923215fd65904/jopt-simple-4.9.jar
+7feaccf26000-7feaccf28000 r--s 0000c000 08:01 3288979                    /home/james/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.1/5ef31c4fe953b1fd00b8a88fa1d6820e8785bb45/asm-5.1.jar
+7feaccf28000-7feaccf2a000 r--s 00006000 08:01 3288978                    /home/james/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/5.1/87b38c12a0ea645791ead9d3e74ae5268d1d6c34/asm-tree-5.1.jar
+7feaccf2a000-7feaccf2b000 r--s 0000a000 08:01 3288977                    /home/james/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/5.1/b60e33a6bd0d71831e0c249816d01e6c1dd90a47/asm-util-5.1.jar
+7feaccf2b000-7feaccf2d000 r--s 0000a000 08:01 3288976                    /home/james/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.1/25d8a575034dd9cfcb375a39b5334f0ba9c8474e/asm-commons-5.1.jar
+7feaccf2d000-7feaccf2e000 r--s 00004000 08:01 3288975                    /home/james/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/5.1/6d1bf8989fc7901f868bee3863c44f21aa63d110/asm-analysis-5.1.jar
+7feaccf2e000-7feaccf2f000 r--s 00000000 08:01 2361514                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/transform-api/2.0.0-deprecated-use-gradle-api/85bee1acea9e27152b920746c68133b30b11431/transform-api-2.0.0-deprecated-use-gradle-api.jar
+7feaccf2f000-7feaccf35000 r--s 00030000 08:01 2360428                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools/repository/26.1.0/7b366315ff2180c441ab5ed7948c9786ed0fb329/repository-26.1.0.jar
+7feaccf35000-7feaccf3f000 r--s 0009c000 08:01 2360427                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools/sdklib/26.1.0/3df6e30aed289f4dc7fcd39b7a5aa08d8aedf9e9/sdklib-26.1.0.jar
+7feaccf3f000-7feaccf51000 r--s 0010b000 08:01 2360426                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools/sdk-common/26.1.0/be76d44fd3b75e09b6487d72a1211d7ab23bb157/sdk-common-26.1.0.jar
+7feaccf51000-7feaccf54000 r--s 0002a000 08:01 2360425                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/manifest-merger/26.1.0/1c9ca4847077e959b8cc5f97fd64dfa4b75d5218/manifest-merger-26.1.0.jar
+7feaccf54000-7feaccf5a000 r--s 00040000 08:01 2360424                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.databinding/compilerCommon/3.1.0/2a16263739ae9bdd90c86b12ac578a06714ddd50/compilerCommon-3.1.0.jar
+7feaccf5a000-7feaccf5e000 r--s 00013000 08:01 2360423                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-api/3.1.0/ecd0b656862fdf1288df7fc06cd2172e423704b3/gradle-api-3.1.0.jar
+7feaccf5e000-7feacd130000 r--s 01887000 08:01 2360421                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/builder/3.1.0/6f2e330c71bafd68c16e294fb1653dfae53678b4/builder-3.1.0.jar
+7feacd130000-7feacd137000 r--s 00069000 08:01 2360462                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/bundletool/0.1.0-alpha01/f7c303e37818223bd98566fcbea29aa0964c4d06/bundletool-0.1.0-alpha01.jar
+7feacd137000-7feacd161000 r--s 0027d000 08:01 2360195                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle-core/3.1.0/7845e5588a1da9dad9429f12e441385a35e0ca02/gradle-core-3.1.0.jar
+7feacd161000-7feacd361000 rw-p 00000000 00:00 0 
+7feacd361000-7feacd561000 rw-p 00000000 00:00 0 
+7feacd561000-7feacd564000 ---p 00000000 00:00 0 
+7feacd564000-7feacd662000 rw-p 00000000 00:00 0 
+7feacd662000-7feacd665000 ---p 00000000 00:00 0 
+7feacd665000-7feacd763000 rw-p 00000000 00:00 0 
+7feacd763000-7feacd766000 ---p 00000000 00:00 0 
+7feacd766000-7feacd864000 rw-p 00000000 00:00 0 
+7feacd864000-7feacd867000 ---p 00000000 00:00 0 
+7feacd867000-7feacd965000 rw-p 00000000 00:00 0 
+7feacd965000-7feacd97b000 r-xp 00000000 08:01 7348467                    /lib/x86_64-linux-gnu/libresolv-2.26.so
+7feacd97b000-7feacdb7b000 ---p 00016000 08:01 7348467                    /lib/x86_64-linux-gnu/libresolv-2.26.so
+7feacdb7b000-7feacdb7c000 r--p 00016000 08:01 7348467                    /lib/x86_64-linux-gnu/libresolv-2.26.so
+7feacdb7c000-7feacdb7d000 rw-p 00017000 08:01 7348467                    /lib/x86_64-linux-gnu/libresolv-2.26.so
+7feacdb7d000-7feacdb7f000 rw-p 00000000 00:00 0 
+7feacdb7f000-7feacdb84000 r-xp 00000000 08:01 7348453                    /lib/x86_64-linux-gnu/libnss_dns-2.26.so
+7feacdb84000-7feacdd84000 ---p 00005000 08:01 7348453                    /lib/x86_64-linux-gnu/libnss_dns-2.26.so
+7feacdd84000-7feacdd85000 r--p 00005000 08:01 7348453                    /lib/x86_64-linux-gnu/libnss_dns-2.26.so
+7feacdd85000-7feacdd86000 rw-p 00006000 08:01 7348453                    /lib/x86_64-linux-gnu/libnss_dns-2.26.so
+7feacdd86000-7feacdd88000 r-xp 00000000 08:01 7344623                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7feacdd88000-7feacdf87000 ---p 00002000 08:01 7344623                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7feacdf87000-7feacdf88000 r--p 00001000 08:01 7344623                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7feacdf88000-7feacdf89000 rw-p 00002000 08:01 7344623                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7feacdf89000-7feacdf8a000 r--s 00002000 08:01 2360429                    /home/james/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre8/1.2.0/505f55b9619bbc5f5e26c77427dd24a6a441eef1/kotlin-stdlib-jre8-1.2.0.jar
+7feacdf8a000-7feacdf8b000 r--s 00004000 08:01 2360422                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.lint/lint-gradle-api/26.1.0/cc007f9cd3a1ee3720e7f003d5744f0a5485014d/lint-gradle-api-26.1.0.jar
+7feacdf8b000-7feacdf8e000 r--s 0001a000 08:01 2360194                    /home/james/.gradle/caches/modules-2/files-2.1/com.android.tools.build/gradle/3.1.0/7d9e6c6fdcdb06722c1af6f5b4a70994c232cf5d/gradle-3.1.0.jar
+7feacdf8e000-7feacdf93000 r--s 0003b000 08:01 4071721                    /usr/local/android-studio/jre/jre/lib/ext/sunjce_provider.jar
+7feacdf93000-7feacdfa5000 r--s 00345000 08:01 4071355                    /usr/local/android-studio/jre/jre/lib/resources.jar
+7feacdfa5000-7feace1a5000 rw-p 00000000 00:00 0 
+7feace1a5000-7feace1db000 r-xp 00000000 08:01 4071406                    /usr/local/android-studio/jre/jre/lib/amd64/libsunec.so
+7feace1db000-7feace3da000 ---p 00036000 08:01 4071406                    /usr/local/android-studio/jre/jre/lib/amd64/libsunec.so
+7feace3da000-7feace3df000 r--p 00035000 08:01 4071406                    /usr/local/android-studio/jre/jre/lib/amd64/libsunec.so
+7feace3df000-7feace3e1000 rw-p 0003a000 08:01 4071406                    /usr/local/android-studio/jre/jre/lib/amd64/libsunec.so
+7feace3e1000-7feace5f2000 rw-p 00000000 00:00 0 
+7feace5f2000-7feace7f2000 rw-p 00000000 00:00 0 
+7feace7f2000-7feace862000 r--s 00646000 08:01 3541053                    /home/james/.gradle/caches/jars-3/ef4cce337f8480ffa8bb084789868305/groovy-all-2.4.12.jar
+7feace862000-7feace871000 r--s 000d5000 08:01 3541224                    /home/james/.gradle/caches/jars-3/b97433be5bbe7106d1a037358a91b82b/kotlin-runtime.jar
+7feace871000-7feacea71000 rw-p 00000000 00:00 0 
+7feacea71000-7feacea74000 ---p 00000000 00:00 0 
+7feacea74000-7feaced72000 rw-p 00000000 00:00 0 
+7feaced72000-7feacef72000 rw-p 00000000 00:00 0 
+7feacef72000-7feacf172000 rw-p 00000000 00:00 0 
+7feacf172000-7feacf372000 rw-p 00000000 00:00 0 
+7feacf372000-7feacf595000 r--s 01cb7000 08:01 3541203                    /home/james/.gradle/caches/jars-3/94cffe63d0381c3f31bd9b10da8f091d/kotlin-plugin.jar
+7feacf595000-7feacf5b5000 r--s 00566000 08:01 3541024                    /home/james/.gradle/caches/jars-3/94beecf22a81e9d68660677538e0e9e1/sdk-tools.jar
+7feacf5b5000-7feacf5fc000 r--s 0023e000 08:01 3541016                    /home/james/.gradle/caches/jars-3/367c9b9c4fab7054d02cacd70b53894c/gradle-core-4.0.jar
+7feacf5fc000-7feacf7fc000 rw-p 00000000 00:00 0 
+7feacf7fc000-7feacf7ff000 ---p 00000000 00:00 0 
+7feacf7ff000-7feacfafd000 rw-p 00000000 00:00 0 
+7feacfafd000-7feacfb00000 ---p 00000000 00:00 0 
+7feacfb00000-7feacfbfe000 rw-p 00000000 00:00 0 
+7feacfbfe000-7feacfc01000 ---p 00000000 00:00 0 
+7feacfc01000-7feacfcff000 rw-p 00000000 00:00 0 
+7feacfcff000-7feacfd02000 ---p 00000000 00:00 0 
+7feacfd02000-7fead0000000 rw-p 00000000 00:00 0 
+7fead0000000-7fead004e000 rw-p 00000000 00:00 0 
+7fead004e000-7fead4000000 ---p 00000000 00:00 0 
+7fead4000000-7fead430b000 rw-p 00000000 00:00 0 
+7fead430b000-7fead8000000 ---p 00000000 00:00 0 
+7fead8000000-7feadc000000 rw-p 00000000 00:00 0 
+7feadc000000-7feadc032000 rw-p 00000000 00:00 0 
+7feadc032000-7feae0000000 ---p 00000000 00:00 0 
+7feae0000000-7feae0e48000 rw-p 00000000 00:00 0 
+7feae0e48000-7feae4000000 ---p 00000000 00:00 0 
+7feae4000000-7feae4002000 r--s 00008000 08:01 4071714                    /usr/local/android-studio/jre/jre/lib/ext/sunec.jar
+7feae4002000-7feae4006000 r--s 00037000 08:01 4071718                    /usr/local/android-studio/jre/jre/lib/ext/sunpkcs11.jar
+7feae4006000-7feae4009000 r--s 00015000 08:01 4071354                    /usr/local/android-studio/jre/jre/lib/jce.jar
+7feae4009000-7feae400e000 r--s 00034000 08:01 3541057                    /home/james/.gradle/caches/jars-3/fe5b5ed05a9997817f29c5d560c66d65/gson-2.8.2.jar
+7feae400e000-7feae4012000 r--s 00066000 08:01 3541055                    /home/james/.gradle/caches/jars-3/e6c37856eb40c7e6a67ea0797b1134b8/gradle-tooling-extension-impl.jar
+7feae4012000-7feae4013000 r--s 00003000 08:01 3541207                    /home/james/.gradle/caches/jars-3/3bd7e52e4ada5c03ab775c5c0327f75d/sam-with-receiver-ide-plugin.jar
+7feae4013000-7feae4015000 r--s 00003000 08:01 3541205                    /home/james/.gradle/caches/jars-3/b06180fa10c91989121d2ce265cc0c85/noarg-ide-plugin.jar
+7feae4015000-7feae4016000 r--s 00003000 08:01 3541201                    /home/james/.gradle/caches/jars-3/31a6490c725f92e749937607025f8a00/allopen-ide-plugin.jar
+7feae4016000-7feae4018000 r--s 00003000 08:01 3541199                    /home/james/.gradle/caches/jars-3/0d14221fd016e34c0b3394612f8bc998/kapt3-idea.jar
+7feae4018000-7feae401c000 r--s 0001d000 08:01 3541197                    /home/james/.gradle/caches/jars-3/e352f7ff27b647a97d9d71fb833b1508/android-extensions-ide.jar
+7feae401c000-7feae401d000 r--s 00000000 08:01 3541026                    /home/james/.gradle/caches/jars-3/141cfe160e971e5498fbbbcd4fe2fb29/gradle-appengine-builder-model-0.1.0.jar
+7feae401d000-7feae401e000 r--s 00003000 08:01 3541195                    /home/james/.gradle/caches/jars-3/7c541673d36e4e0cff26ec12fa0ef5f2/kotlin-gradle-tooling.jar
+7feae401e000-7feae401f000 r--s 00002000 08:01 3541022                    /home/james/.gradle/caches/jars-3/548e13f7eb1036c346e4becb69654e7d/external-system-rt.jar
+7feae401f000-7feae4021000 r--s 0000c000 08:01 3541020                    /home/james/.gradle/caches/jars-3/1f6ee4a8670933baff039a2e5aaf3301/gradle-tooling-extension-api.jar
+7feae4021000-7feae4027000 r--s 0002b000 08:01 3541018                    /home/james/.gradle/caches/jars-3/d49eb9780029713c9c8fdae1e164e02e/gradle-messaging-4.0.jar
+7feae4027000-7feae402c000 r--s 00041000 08:01 3541014                    /home/james/.gradle/caches/jars-3/aee7855bdca982f949ec3186b02c526c/commons-lang-2.6.jar
+7feae402c000-7feae4037000 r--s 00053000 08:01 3541012                    /home/james/.gradle/caches/jars-3/c06e76c9368a06aff37befc193dcbbeb/gradle-base-services-4.0.jar
+7feae4037000-7feae405f000 r--s 001cf000 08:01 3541010                    /home/james/.gradle/caches/jars-3/ca08947540925f2914d21c73bec56045/guava-jdk5-17.0.jar
+7feae405f000-7feae406c000 r--s 00043000 08:01 3541008                    /home/james/.gradle/caches/jars-3/77c29fea57888ca08f7c4993bfcb0df4/gradle-tooling-api-4.0.jar
+7feae406c000-7feae40e5000 r--s 010fd000 08:01 4071322                    /usr/local/android-studio/jre/lib/tools.jar
+7feae40e5000-7feae40e8000 ---p 00000000 00:00 0 
+7feae40e8000-7feae41e6000 rw-p 00000000 00:00 0 
+7feae41e6000-7feae41e9000 ---p 00000000 00:00 0 
+7feae41e9000-7feae42e7000 rw-p 00000000 00:00 0 
+7feae42e7000-7feae42ea000 ---p 00000000 00:00 0 
+7feae42ea000-7feae43e8000 rw-p 00000000 00:00 0 
+7feae43e8000-7feae43eb000 ---p 00000000 00:00 0 
+7feae43eb000-7feae44e9000 rw-p 00000000 00:00 0 
+7feae44e9000-7feae44ec000 ---p 00000000 00:00 0 
+7feae44ec000-7feae45ea000 rw-p 00000000 00:00 0 
+7feae45ea000-7feae45ed000 ---p 00000000 00:00 0 
+7feae45ed000-7feae46eb000 rw-p 00000000 00:00 0 
+7feae46eb000-7feae46f2000 r--s 00000000 08:01 530559                     /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7feae46f2000-7feae46f5000 ---p 00000000 00:00 0 
+7feae46f5000-7feae47f3000 rw-p 00000000 00:00 0 
+7feae47f3000-7feae47f8000 r--s 0009a000 08:01 4071742                    /usr/local/android-studio/jre/jre/lib/jsse.jar
+7feae47f8000-7feae49f8000 rw-p 00000000 00:00 0 
+7feae49f8000-7feae4a01000 r-xp 00000000 08:01 4071695                    /usr/local/android-studio/jre/jre/lib/amd64/libmanagement.so
+7feae4a01000-7feae4c00000 ---p 00009000 08:01 4071695                    /usr/local/android-studio/jre/jre/lib/amd64/libmanagement.so
+7feae4c00000-7feae4c01000 r--p 00008000 08:01 4071695                    /usr/local/android-studio/jre/jre/lib/amd64/libmanagement.so
+7feae4c01000-7feae4c02000 rw-p 00009000 08:01 4071695                    /usr/local/android-studio/jre/jre/lib/amd64/libmanagement.so
+7feae4c02000-7feae4c04000 r--s 00007000 08:01 3681503                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-tooling-api-builders-4.4.jar
+7feae4c04000-7feae4c08000 r--s 00014000 08:01 3681488                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-testing-native-4.4.jar
+7feae4c08000-7feae4c0a000 r--s 00009000 08:01 3681762                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/hamcrest-core-1.3.jar
+7feae4c0a000-7feae4c0f000 r--s 0005a000 08:01 3681719                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/bsh-2.0b6.jar
+7feae4c0f000-7feae4c11000 r--s 00006000 08:01 3681758                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jcommander-1.12.jar
+7feae4c11000-7feae4c17000 r--s 00033000 08:01 3681759                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/snakeyaml-1.6.jar
+7feae4c17000-7feae4c20000 r--s 00089000 08:01 3681717                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/testng-6.3.1.jar
+7feae4c20000-7feae4c28000 r--s 00045000 08:01 3681718                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/junit-4.12.jar
+7feae4c28000-7feae4c2c000 r--s 00019000 08:01 3681509                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-testing-jvm-4.4.jar
+7feae4c2c000-7feae4c34000 r--s 00030000 08:01 3681515                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-testing-base-4.4.jar
+7feae4c34000-7feae4c3b000 r--s 00043000 08:01 3681542                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/bcpg-jdk15on-1.58.jar
+7feae4c3b000-7feae4c3d000 r--s 0000c000 08:01 3681486                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-signing-4.4.jar
+7feae4c3d000-7feae4c3f000 r--s 00007000 08:01 3681494                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-scala-4.4.jar
+7feae4c3f000-7feae4c40000 r--s 00004000 08:01 3681525                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-resources-sftp-4.4.jar
+7feae4c40000-7feae4c4e000 r--s 00087000 08:01 3681727                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aws-java-sdk-core-1.11.6.jar
+7feae4c4e000-7feae4c55000 r--s 00057000 08:01 3681726                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aws-java-sdk-kms-1.11.6.jar
+7feae4c55000-7feae4c62000 r--s 0008e000 08:01 3681725                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aws-java-sdk-s3-1.11.6.jar
+7feae4c62000-7feae4c64000 r--s 00004000 08:01 3681520                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-resources-s3-4.4.jar
+7feae4c64000-7feae4c74000 r--s 00088000 08:01 3681731                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/joda-time-2.8.2.jar
+7feae4c74000-7feae4c86000 r--s 0011e000 08:01 3681730                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jackson-databind-2.8.9.jar
+7feae4c86000-7feae4c89000 r--s 0000b000 08:01 3681729                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jackson-annotations-2.8.9.jar
+7feae4c89000-7feae4c8d000 r--s 00042000 08:01 3681728                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jackson-core-2.8.9.jar
+7feae4c8d000-7feae4c8e000 r--s 00001000 08:01 3681532                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/google-http-client-jackson2-1.22.0.jar
+7feae4c8e000-7feae4c97000 r--s 0004f000 08:01 3681533                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/google-http-client-1.22.0.jar
+7feae4c97000-7feae4c99000 r--s 0000d000 08:01 3681531                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/google-oauth-client-1.22.0.jar
+7feae4c99000-7feae4c9e000 r--s 0002c000 08:01 3681530                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/google-api-client-1.22.0.jar
+7feae4c9e000-7feae4ca1000 r--s 00016000 08:01 3681529                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/google-api-services-storage-v1-rev78-1.22.0.jar
+7feae4ca1000-7feae4ca3000 r--s 00003000 08:01 3681521                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-resources-gcs-4.4.jar
+7feae4ca3000-7feae4ca5000 r--s 00010000 08:01 3681516                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-reporting-4.4.jar
+7feae4ca5000-7feae4ca7000 r--s 00005000 08:01 3681517                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-publish-4.4.jar
+7feae4ca7000-7feae4ca9000 r--s 00009000 08:01 3681535                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/commons-cli-1.2.jar
+7feae4ca9000-7feae4caf000 r--s 00038000 08:01 3681502                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-plugins-4.4.jar
+7feae4caf000-7feae4cb1000 r--s 00009000 08:01 3681490                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-plugin-development-4.4.jar
+7feae4cb1000-7feae4cb8000 r--s 0002e000 08:01 3681497                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-platform-play-4.4.jar
+7feae4cb8000-7feae4cc9000 r--s 00069000 08:01 3681513                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-platform-native-4.4.jar
+7feae4cc9000-7feae4ccd000 r--s 0001b000 08:01 3681512                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-platform-jvm-4.4.jar
+7feae4ccd000-7feae4cd4000 r--s 00028000 08:01 3681518                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-platform-base-4.4.jar
+7feae4cd4000-7feae4cff000 r--s 00247000 08:01 3681536                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/biz.aQute.bndlib-3.4.0.jar
+7feae4cff000-7feae4d00000 r--s 00004000 08:01 3681485                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-osgi-4.4.jar
+7feae4d00000-7feae4d03000 r--s 0000c000 08:01 3681539                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/pmaven-groovy-0.8-20100325.jar
+7feae4d03000-7feae4d04000 r--s 00004000 08:01 3681538                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/pmaven-common-0.8-20100325.jar
+7feae4d04000-7feae4d0a000 r--s 00025000 08:01 3681491                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-maven-4.4.jar
+7feae4d0a000-7feae4d0d000 r--s 0000b000 08:01 3681508                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-language-scala-4.4.jar
+7feae4d0d000-7feae4d16000 r--s 00036000 08:01 3681489                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-language-native-4.4.jar
+7feae4d16000-7feae4d18000 r--s 00005000 08:01 3681511                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-language-jvm-4.4.jar
+7feae4d18000-7feae4d1f000 r--s 00030000 08:01 3681510                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-language-java-4.4.jar
+7feae4d1f000-7feae4d22000 r--s 0000a000 08:01 3681507                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-language-groovy-4.4.jar
+7feae4d22000-7feae4d29000 r--s 00035000 08:01 3681715                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/simple-4.1.21.jar
+7feae4d29000-7feae4d35000 r--s 00100000 08:01 3681543                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/rhino-1.7R3.jar
+7feae4d35000-7feae4d39000 r--s 00011000 08:01 3681498                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-javascript-4.4.jar
+7feae4d39000-7feae4d3c000 r--s 00011000 08:01 3681500                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-jacoco-4.4.jar
+7feae4d3c000-7feae4d40000 r--s 0000e000 08:01 3681499                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-ivy-4.4.jar
+7feae4d40000-7feae4d41000 r--s 00002000 08:01 3681492                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-ide-play-4.4.jar
+7feae4d41000-7feae4d42000 r--s 00011000 08:01 3681716                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/dd-plist-1.20.jar
+7feae4d42000-7feae4d48000 r--s 00027000 08:01 3681487                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-ide-native-4.4.jar
+7feae4d48000-7feae4d52000 r--s 00056000 08:01 3681493                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-ide-4.4.jar
+7feae4d52000-7feae4d54000 r--s 00007000 08:01 3681496                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-ear-4.4.jar
+7feae4d54000-7feae4d56000 r--s 00005000 08:01 3681528                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jatl-0.2.2.jar
+7feae4d56000-7feae4d5c000 r--s 00039000 08:01 3681514                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-diagnostics-4.4.jar
+7feae4d5c000-7feae4d5e000 r--s 0000b000 08:01 3681505                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-composite-builds-4.4.jar
+7feae4d5e000-7feae4d63000 r--s 00026000 08:01 3681483                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-code-quality-4.4.jar
+7feae4d63000-7feae4d68000 r--s 00022000 08:01 3681501                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-build-init-4.4.jar
+7feae4d68000-7feae4d6f000 r--s 0005d000 08:01 3681495                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-build-comparison-4.4.jar
+7feae4d6f000-7feae4d70000 r--s 00002000 08:01 3681522                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-build-cache-http-4.4.jar
+7feae4d70000-7feae4d72000 r--s 00008000 08:01 3681484                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-antlr-4.4.jar
+7feae4d72000-7feae4d74000 r--s 00004000 08:01 3681506                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-announce-4.4.jar
+7feae4d74000-7feae4d76000 r--s 00009000 08:01 3681415                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-kotlin-dsl-tooling-builders-0.13.1.jar
+7feae4d76000-7feae4d79000 r--s 0000b000 08:01 3681519                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-plugin-use-4.4.jar
+7feae4d79000-7feae4d7c000 r--s 0001c000 08:01 3681721                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/nekohtml-1.9.14.jar
+7feae4d7c000-7feae4d95000 r--s 00135000 08:01 3681722                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/xercesImpl-2.11.0.jar
+7feae4d95000-7feae4de8000 r--s 00373000 08:01 3681733                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/bcprov-jdk15on-1.58.jar
+7feae4de8000-7feae4dfe000 r-xp 00000000 08:01 7347127                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7feae4dfe000-7feae4ffd000 ---p 00016000 08:01 7347127                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7feae4ffd000-7feae4ffe000 r--p 00015000 08:01 7347127                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7feae4ffe000-7feae4fff000 rw-p 00016000 08:01 7347127                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7feae4fff000-7feae8000000 rw-p 00000000 00:00 0 
+7feae8000000-7feae80cc000 rw-p 00000000 00:00 0 
+7feae80cc000-7feaec000000 ---p 00000000 00:00 0 
+7feaec000000-7feaec0d4000 rw-p 00000000 00:00 0 
+7feaec0d4000-7feaf0000000 ---p 00000000 00:00 0 
+7feaf0000000-7feaf2679000 rw-p 00000000 00:00 0 
+7feaf2679000-7feaf4000000 ---p 00000000 00:00 0 
+7feaf4000000-7feaf5379000 rw-p 00000000 00:00 0 
+7feaf5379000-7feaf8000000 ---p 00000000 00:00 0 
+7feaf8000000-7feaf8346000 rw-p 00000000 00:00 0 
+7feaf8346000-7feafc000000 ---p 00000000 00:00 0 
+7feafc000000-7feafe510000 rw-p 00000000 00:00 0 
+7feafe510000-7feb00000000 ---p 00000000 00:00 0 
+7feb00000000-7feb01ac3000 rw-p 00000000 00:00 0 
+7feb01ac3000-7feb04000000 ---p 00000000 00:00 0 
+7feb04000000-7feb0455b000 rw-p 00000000 00:00 0 
+7feb0455b000-7feb08000000 ---p 00000000 00:00 0 
+7feb08000000-7feb0812a000 rw-p 00000000 00:00 0 
+7feb0812a000-7feb0c000000 ---p 00000000 00:00 0 
+7feb0c000000-7feb0c3ba000 rw-p 00000000 00:00 0 
+7feb0c3ba000-7feb10000000 ---p 00000000 00:00 0 
+7feb10000000-7feb10037000 rw-p 00000000 00:00 0 
+7feb10037000-7feb14000000 ---p 00000000 00:00 0 
+7feb14000000-7feb14043000 rw-p 00000000 00:00 0 
+7feb14043000-7feb18000000 ---p 00000000 00:00 0 
+7feb18000000-7feb18041000 rw-p 00000000 00:00 0 
+7feb18041000-7feb1c000000 ---p 00000000 00:00 0 
+7feb1c000000-7feb1c001000 r--s 00000000 08:01 3681424                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-runtime-api-info-4.4.jar
+7feb1c001000-7feb1c004000 r--s 0000c000 08:01 3681524                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-resources-http-4.4.jar
+7feb1c004000-7feb1c00b000 r--s 00049000 08:01 3681760                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/httpcore-4.4.4.jar
+7feb1c00b000-7feb1c011000 r--s 00033000 08:01 3681541                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/commons-codec-1.6.jar
+7feb1c011000-7feb1c017000 r--s 0005b000 08:01 3681720                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jcifs-1.3.17.jar
+7feb1c017000-7feb1c024000 r--s 000a4000 08:01 3681534                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/httpclient-4.4.1.jar
+7feb1c024000-7feb1c047000 r--s 00223000 08:01 3681761                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/org.eclipse.jgit-4.5.3.201708160445-r.jar
+7feb1c047000-7feb1c048000 r--s 00005000 08:01 3681527                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-version-control-4.4.jar
+7feb1c048000-7feb1c049000 r--s 00000000 08:01 3681427                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-installation-beacon-4.4.jar
+7feb1c049000-7feb1c04d000 r--s 0001d000 08:01 3681732                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/xbean-reflect-3.4.jar
+7feb1c04d000-7feb1c04f000 r--s 0000a000 08:01 3681734                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-settings-3.0.4.jar
+7feb1c04f000-7feb1c052000 r--s 00008000 08:01 3681735                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-settings-builder-3.0.4.jar
+7feb1c052000-7feb1c055000 r--s 00034000 08:01 3681736                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-utils-2.1.jar
+7feb1c055000-7feb1c057000 r--s 0000d000 08:01 3681737                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-interpolation-1.14.jar
+7feb1c057000-7feb1c059000 r--s 00000000 08:01 3681540                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-component-annotations-1.5.5.jar
+7feb1c059000-7feb1c060000 r--s 0002e000 08:01 3681738                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-container-default-1.5.5.jar
+7feb1c060000-7feb1c062000 r--s 0000a000 08:01 3681739                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-classworlds-2.4.jar
+7feb1c062000-7feb1c064000 r--s 00002000 08:01 3681740                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-cipher-1.7.jar
+7feb1c064000-7feb1c065000 r--s 00006000 08:01 3681741                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/plexus-sec-dispatcher-1.3.jar
+7feb1c065000-7feb1c06b000 r--s 0003f000 08:01 3681742                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-compat-3.0.4.jar
+7feb1c06b000-7feb1c06f000 r--s 00021000 08:01 3681743                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-model-builder-3.0.4.jar
+7feb1c06f000-7feb1c071000 r--s 00026000 08:01 3681744                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-model-3.0.4.jar
+7feb1c071000-7feb1c073000 r--s 0000b000 08:01 3681745                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-artifact-3.0.4.jar
+7feb1c073000-7feb1c075000 r--s 00006000 08:01 3681746                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-repository-metadata-3.0.4.jar
+7feb1c075000-7feb1c077000 r--s 0000b000 08:01 3681747                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-plugin-api-3.0.4.jar
+7feb1c077000-7feb1c079000 r--s 0000c000 08:01 3681748                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-aether-provider-3.0.4.jar
+7feb1c079000-7feb1c07a000 r--s 00002000 08:01 3681749                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/wagon-file-2.4.jar
+7feb1c07a000-7feb1c07b000 r--s 00002000 08:01 3681750                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/wagon-http-2.4.jar
+7feb1c07b000-7feb1c07d000 r--s 0000b000 08:01 3681751                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/wagon-provider-api-2.4.jar
+7feb1c07d000-7feb1c07e000 r--s 00007000 08:01 3681752                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/wagon-http-shared4-2.4.jar
+7feb1c07e000-7feb1c081000 r--s 00013000 08:01 3681753                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aether-api-1.13.1.jar
+7feb1c081000-7feb1c084000 r--s 0001d000 08:01 3681754                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aether-impl-1.13.1.jar
+7feb1c084000-7feb1c085000 r--s 00003000 08:01 3681755                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aether-spi-1.13.1.jar
+7feb1c085000-7feb1c089000 r--s 0001c000 08:01 3681756                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aether-util-1.13.1.jar
+7feb1c089000-7feb1c08b000 r--s 00006000 08:01 3681757                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/aether-connector-wagon-1.13.1.jar
+7feb1c08b000-7feb1c097000 r--s 0007d000 08:01 3681537                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/maven-core-3.0.4.jar
+7feb1c097000-7feb1c0bd000 r--s 00133000 08:01 3681523                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-dependency-management-4.4.jar
+7feb1c0bd000-7feb1c235000 r-xp 00000000 08:01 264626                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24
+7feb1c235000-7feb1c434000 ---p 00178000 08:01 264626                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24
+7feb1c434000-7feb1c43e000 r--p 00177000 08:01 264626                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24
+7feb1c43e000-7feb1c440000 rw-p 00181000 08:01 264626                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.24
+7feb1c440000-7feb1c443000 rw-p 00000000 00:00 0 
+7feb1c443000-7feb1c448000 r--s 00034000 08:01 3681711                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gson-2.7.jar
+7feb1c448000-7feb1c44d000 r--s 00040000 08:01 3681724                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/jsch-0.1.54.jar
+7feb1c44d000-7feb1c45c000 r--s 000d9000 08:01 3681723                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/ivy-2.2.0.jar
+7feb1c45c000-7feb1c45f000 r--s 0000d000 08:01 3681526                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/plugins/gradle-workers-4.4.jar
+7feb1c45f000-7feb1c464000 r-xp 00000000 08:01 3543300                    /home/james/.gradle/native/25/linux-amd64/libnative-platform.so
+7feb1c464000-7feb1c663000 ---p 00005000 08:01 3543300                    /home/james/.gradle/native/25/linux-amd64/libnative-platform.so
+7feb1c663000-7feb1c664000 rw-p 00004000 08:01 3543300                    /home/james/.gradle/native/25/linux-amd64/libnative-platform.so
+7feb1c664000-7feb1c675000 r-xp 00000000 08:01 4071633                    /usr/local/android-studio/jre/jre/lib/amd64/libnio.so
+7feb1c675000-7feb1c874000 ---p 00011000 08:01 4071633                    /usr/local/android-studio/jre/jre/lib/amd64/libnio.so
+7feb1c874000-7feb1c875000 r--p 00010000 08:01 4071633                    /usr/local/android-studio/jre/jre/lib/amd64/libnio.so
+7feb1c875000-7feb1c876000 rw-p 00011000 08:01 4071633                    /usr/local/android-studio/jre/jre/lib/amd64/libnio.so
+7feb1c876000-7feb1c88c000 r-xp 00000000 08:01 4071635                    /usr/local/android-studio/jre/jre/lib/amd64/libnet.so
+7feb1c88c000-7feb1ca8c000 ---p 00016000 08:01 4071635                    /usr/local/android-studio/jre/jre/lib/amd64/libnet.so
+7feb1ca8c000-7feb1ca8d000 r--p 00016000 08:01 4071635                    /usr/local/android-studio/jre/jre/lib/amd64/libnet.so
+7feb1ca8d000-7feb1ca8e000 rw-p 00017000 08:01 4071635                    /usr/local/android-studio/jre/jre/lib/amd64/libnet.so
+7feb1ca8e000-7feb1ca8f000 r--s 00006000 08:01 3681426                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-wrapper-4.4.jar
+7feb1ca8f000-7feb1ca9d000 r--s 00046000 08:01 3681425                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-tooling-api-4.4.jar
+7feb1ca9d000-7feb1ca9e000 r--s 00002000 08:01 3681422                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kotlin-stdlib-jre8-1.1.51.jar
+7feb1ca9e000-7feb1ca9f000 r--s 00000000 08:01 3681421                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kotlin-stdlib-jre7-1.1.51.jar
+7feb1ca9f000-7feb1caae000 r--s 000c9000 08:01 3681420                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kotlin-stdlib-1.1.51.jar
+7feb1caae000-7feb1cab0000 r--s 00002000 08:01 3681419                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kotlin-sam-with-receiver-compiler-plugin-1.1.51.jar
+7feb1cab0000-7feb1cae3000 r--s 0022b000 08:01 3681418                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kotlin-reflect-1.1.51.jar
+7feb1cae3000-7feb1ccc5000 r--s 01a42000 08:01 3681417                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kotlin-compiler-embeddable-1.1.51.jar
+7feb1ccc5000-7feb1ccc6000 r--s 00000000 08:01 3681416                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-kotlin-dsl-tooling-models-0.13.1.jar
+7feb1ccc6000-7feb1ccc8000 r--s 00003000 08:01 3681413                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/annotations-13.0.jar
+7feb1ccc8000-7feb1ccd3000 r--s 00082000 08:01 3681414                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-kotlin-dsl-0.13.1.jar
+7feb1ccd3000-7feb1ccd7000 r--s 00012000 08:01 3681431                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-build-cache-4.4.jar
+7feb1ccd7000-7feb1ccdd000 r--s 0002e000 08:01 3681435                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-persistent-cache-4.4.jar
+7feb1ccdd000-7feb1cce1000 r--s 00014000 08:01 3681434                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-resources-4.4.jar
+7feb1cce1000-7feb1cce2000 r--s 00003000 08:01 3681442                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-build-option-4.4.jar
+7feb1cce2000-7feb1cce4000 r--s 00005000 08:01 3681443                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-cli-4.4.jar
+7feb1cce4000-7feb1cce6000 r--s 00003000 08:01 3681450                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/jcl-over-slf4j-1.7.10.jar
+7feb1cce6000-7feb1cce7000 r--s 00005000 08:01 3681449                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/log4j-over-slf4j-1.7.10.jar
+7feb1cce7000-7feb1cce9000 r--s 00000000 08:01 3681448                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/jul-to-slf4j-1.7.10.jar
+7feb1cce9000-7feb1ccf0000 r--s 0002f000 08:01 3681432                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-logging-4.4.jar
+7feb1ccf0000-7feb1cd00000 r--s 00082000 08:01 3681438                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-model-core-4.4.jar
+7feb1cd00000-7feb1cd02000 r--s 00006000 08:01 3681439                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-base-services-groovy-4.4.jar
+7feb1cd02000-7feb1cd04000 r--s 00007000 08:01 3681437                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-model-groovy-4.4.jar
+7feb1cd04000-7feb1cd05000 r--s 00002000 08:01 3681463                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-docs-4.4.jar
+7feb1cd05000-7feb1cd0e000 r--s 0002d000 08:01 3681462                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/xml-apis-1.4.01.jar
+7feb1cd0e000-7feb1cd18000 r--s 00078000 08:01 3681461                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/commons-compress-1.14.jar
+7feb1cd18000-7feb1cd25000 r--s 00083000 08:01 3681459                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/commons-collections-3.2.2.jar
+7feb1cd25000-7feb1cd26000 r--s 00000000 08:01 3681458                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/javax.inject-1.jar
+7feb1cd26000-7feb1cd96000 r--s 00646000 08:01 3681456                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/groovy-all-2.4.12.jar
+7feb1cd96000-7feb1cd99000 r--s 00023000 08:01 3681464                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/jansi-1.14.jar
+7feb1cd99000-7feb1cd9a000 r--s 00004000 08:01 3681466                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-freebsd-amd64-libcpp-0.14.jar
+7feb1cd9a000-7feb1cd9b000 r--s 00004000 08:01 3681467                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-freebsd-amd64-libstdcpp-0.14.jar
+7feb1cd9b000-7feb1cd9c000 r--s 00004000 08:01 3681468                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-freebsd-i386-libcpp-0.14.jar
+7feb1cd9c000-7feb1cd9d000 r--s 00003000 08:01 3681469                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-freebsd-i386-libstdcpp-0.14.jar
+7feb1cd9d000-7feb1cd9e000 r--s 00002000 08:01 3681470                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-linux-amd64-0.14.jar
+7feb1cd9e000-7feb1cd9f000 r--s 00002000 08:01 3681471                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-linux-i386-0.14.jar
+7feb1cd9f000-7feb1cda1000 r--s 00002000 08:01 3681472                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-osx-amd64-0.14.jar
+7feb1cda1000-7feb1cda2000 r--s 00003000 08:01 3681473                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-osx-i386-0.14.jar
+7feb1cda2000-7feb1cda4000 r--s 0000b000 08:01 3681474                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-windows-amd64-0.14.jar
+7feb1cda4000-7feb1cda5000 r--s 0000b000 08:01 3681475                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-windows-i386-0.14.jar
+7feb1cda5000-7feb1cda6000 r--s 00001000 08:01 3681476                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-linux-amd64-ncurses5-0.14.jar
+7feb1cda6000-7feb1cda7000 r--s 00001000 08:01 3681477                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-linux-amd64-ncurses6-0.14.jar
+7feb1cda7000-7feb1cda8000 r--s 00001000 08:01 3681478                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-linux-i386-ncurses5-0.14.jar
+7feb1cda8000-7feb1cdac000 r--s 00012000 08:01 3681460                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-0.14.jar
+7feb1cdac000-7feb1cdaf000 r--s 0000c000 08:01 3681436                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-native-4.4.jar
+7feb1cdaf000-7feb1cdb1000 r--s 0000f000 08:01 3681445                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/reflectasm-1.07-shaded.jar
+7feb1cdb1000-7feb1cdb3000 r--s 00000000 08:01 3681480                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/minlog-1.2.jar
+7feb1cdb3000-7feb1cdb5000 r--s 00007000 08:01 3681481                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/objenesis-1.2.jar
+7feb1cdb5000-7feb1cdb9000 r--s 00026000 08:01 3681444                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/kryo-2.20.jar
+7feb1cdb9000-7feb1cdbf000 r--s 0002b000 08:01 3681440                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-messaging-4.4.jar
+7feb1cdbf000-7feb1cdc1000 r--s 00006000 08:01 3681433                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-process-services-4.4.jar
+7feb1cdc1000-7feb1cdc6000 r--s 00041000 08:01 3681454                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/commons-lang-2.6.jar
+7feb1cdc6000-7feb1cdee000 r--s 001cf000 08:01 3681452                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/guava-jdk5-17.0.jar
+7feb1cdee000-7feb1cdf6000 r--s 000bd000 08:01 3681446                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/asm-debug-all-6.0_ALPHA.jar
+7feb1cdf6000-7feb1ce15000 r--s 001d5000 08:01 3681457                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/ant-1.9.9.jar
+7feb1ce15000-7feb1ce16000 ---p 00000000 00:00 0 
+7feb1ce16000-7feb1cf16000 rw-p 00000000 00:00 0 
+7feb1cf16000-7feb1cf19000 ---p 00000000 00:00 0 
+7feb1cf19000-7feb1d017000 rw-p 00000000 00:00 0 
+7feb1d017000-7feb1d01a000 ---p 00000000 00:00 0 
+7feb1d01a000-7feb1d118000 rw-p 00000000 00:00 0 
+7feb1d118000-7feb1d11b000 ---p 00000000 00:00 0 
+7feb1d11b000-7feb1d219000 rw-p 00000000 00:00 0 
+7feb1d219000-7feb1d21c000 ---p 00000000 00:00 0 
+7feb1d21c000-7feb1d31a000 rw-p 00000000 00:00 0 
+7feb1d31a000-7feb1d31d000 ---p 00000000 00:00 0 
+7feb1d31d000-7feb1d41b000 rw-p 00000000 00:00 0 
+7feb1d41b000-7feb1d6f7000 r--p 00000000 08:01 264274                     /usr/lib/locale/locale-archive
+7feb1d6f7000-7feb1d6fa000 ---p 00000000 00:00 0 
+7feb1d6fa000-7feb1d7f8000 rw-p 00000000 00:00 0 
+7feb1d7f8000-7feb1d7fb000 ---p 00000000 00:00 0 
+7feb1d7fb000-7feb1d8f9000 rw-p 00000000 00:00 0 
+7feb1d8f9000-7feb1d8fa000 ---p 00000000 00:00 0 
+7feb1d8fa000-7feb21000000 rw-p 00000000 00:00 0 
+7feb21000000-7feb24c00000 rwxp 00000000 00:00 0 
+7feb24c00000-7feb30000000 ---p 00000000 00:00 0 
+7feb30000000-7feb30d7e000 rw-p 00000000 00:00 0 
+7feb30d7e000-7feb34000000 ---p 00000000 00:00 0 
+7feb34000000-7feb34001000 r--s 00001000 08:01 3681479                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/native-platform-linux-i386-ncurses6-0.14.jar
+7feb34001000-7feb3403d000 r--s 00204000 08:01 3681428                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-core-4.4.jar
+7feb3403d000-7feb34a18000 rw-p 00000000 00:00 0 
+7feb34a18000-7feb34be8000 r--s 03c46000 08:01 4071352                    /usr/local/android-studio/jre/jre/lib/rt.jar
+7feb34be8000-7feb3575e000 rw-p 00000000 00:00 0 
+7feb3575e000-7feb3575f000 ---p 00000000 00:00 0 
+7feb3575f000-7feb3585f000 rw-p 00000000 00:00 0 
+7feb3585f000-7feb35860000 ---p 00000000 00:00 0 
+7feb35860000-7feb35960000 rw-p 00000000 00:00 0 
+7feb35960000-7feb35961000 ---p 00000000 00:00 0 
+7feb35961000-7feb35a61000 rw-p 00000000 00:00 0 
+7feb35a61000-7feb35a62000 ---p 00000000 00:00 0 
+7feb35a62000-7feb35bc9000 rw-p 00000000 00:00 0 
+7feb35bc9000-7feb35d62000 ---p 00000000 00:00 0 
+7feb35d62000-7feb35dc9000 rw-p 00000000 00:00 0 
+7feb35dc9000-7feb35f62000 ---p 00000000 00:00 0 
+7feb35f62000-7feb36062000 rw-p 00000000 00:00 0 
+7feb36062000-7feb36153000 rw-p 00000000 00:00 0 
+7feb36153000-7feb36423000 ---p 00000000 00:00 0 
+7feb36423000-7feb3643d000 r-xp 00000000 08:01 4071381                    /usr/local/android-studio/jre/jre/lib/amd64/libzip.so
+7feb3643d000-7feb3663d000 ---p 0001a000 08:01 4071381                    /usr/local/android-studio/jre/jre/lib/amd64/libzip.so
+7feb3663d000-7feb3663e000 r--p 0001a000 08:01 4071381                    /usr/local/android-studio/jre/jre/lib/amd64/libzip.so
+7feb3663e000-7feb3663f000 rw-p 0001b000 08:01 4071381                    /usr/local/android-studio/jre/jre/lib/amd64/libzip.so
+7feb3663f000-7feb3664a000 r-xp 00000000 08:01 7348455                    /lib/x86_64-linux-gnu/libnss_files-2.26.so
+7feb3664a000-7feb36849000 ---p 0000b000 08:01 7348455                    /lib/x86_64-linux-gnu/libnss_files-2.26.so
+7feb36849000-7feb3684a000 r--p 0000a000 08:01 7348455                    /lib/x86_64-linux-gnu/libnss_files-2.26.so
+7feb3684a000-7feb3684b000 rw-p 0000b000 08:01 7348455                    /lib/x86_64-linux-gnu/libnss_files-2.26.so
+7feb3684b000-7feb36851000 rw-p 00000000 00:00 0 
+7feb36851000-7feb3685c000 r-xp 00000000 08:01 7348459                    /lib/x86_64-linux-gnu/libnss_nis-2.26.so
+7feb3685c000-7feb36a5b000 ---p 0000b000 08:01 7348459                    /lib/x86_64-linux-gnu/libnss_nis-2.26.so
+7feb36a5b000-7feb36a5c000 r--p 0000a000 08:01 7348459                    /lib/x86_64-linux-gnu/libnss_nis-2.26.so
+7feb36a5c000-7feb36a5d000 rw-p 0000b000 08:01 7348459                    /lib/x86_64-linux-gnu/libnss_nis-2.26.so
+7feb36a5d000-7feb36a74000 r-xp 00000000 08:01 7348449                    /lib/x86_64-linux-gnu/libnsl-2.26.so
+7feb36a74000-7feb36c73000 ---p 00017000 08:01 7348449                    /lib/x86_64-linux-gnu/libnsl-2.26.so
+7feb36c73000-7feb36c74000 r--p 00016000 08:01 7348449                    /lib/x86_64-linux-gnu/libnsl-2.26.so
+7feb36c74000-7feb36c75000 rw-p 00017000 08:01 7348449                    /lib/x86_64-linux-gnu/libnsl-2.26.so
+7feb36c75000-7feb36c77000 rw-p 00000000 00:00 0 
+7feb36c77000-7feb36c7f000 r-xp 00000000 08:01 7348451                    /lib/x86_64-linux-gnu/libnss_compat-2.26.so
+7feb36c7f000-7feb36e7e000 ---p 00008000 08:01 7348451                    /lib/x86_64-linux-gnu/libnss_compat-2.26.so
+7feb36e7e000-7feb36e7f000 r--p 00007000 08:01 7348451                    /lib/x86_64-linux-gnu/libnss_compat-2.26.so
+7feb36e7f000-7feb36e80000 rw-p 00008000 08:01 7348451                    /lib/x86_64-linux-gnu/libnss_compat-2.26.so
+7feb36e80000-7feb36ead000 r-xp 00000000 08:01 4071380                    /usr/local/android-studio/jre/jre/lib/amd64/libjava.so
+7feb36ead000-7feb370ac000 ---p 0002d000 08:01 4071380                    /usr/local/android-studio/jre/jre/lib/amd64/libjava.so
+7feb370ac000-7feb370ad000 r--p 0002c000 08:01 4071380                    /usr/local/android-studio/jre/jre/lib/amd64/libjava.so
+7feb370ad000-7feb370af000 rw-p 0002d000 08:01 4071380                    /usr/local/android-studio/jre/jre/lib/amd64/libjava.so
+7feb370af000-7feb370bf000 r-xp 00000000 08:01 4071391                    /usr/local/android-studio/jre/jre/lib/amd64/libverify.so
+7feb370bf000-7feb372be000 ---p 00010000 08:01 4071391                    /usr/local/android-studio/jre/jre/lib/amd64/libverify.so
+7feb372be000-7feb372c0000 r--p 0000f000 08:01 4071391                    /usr/local/android-studio/jre/jre/lib/amd64/libverify.so
+7feb372c0000-7feb372c1000 rw-p 00011000 08:01 4071391                    /usr/local/android-studio/jre/jre/lib/amd64/libverify.so
+7feb372c1000-7feb372c8000 r-xp 00000000 08:01 7348468                    /lib/x86_64-linux-gnu/librt-2.26.so
+7feb372c8000-7feb374c7000 ---p 00007000 08:01 7348468                    /lib/x86_64-linux-gnu/librt-2.26.so
+7feb374c7000-7feb374c8000 r--p 00006000 08:01 7348468                    /lib/x86_64-linux-gnu/librt-2.26.so
+7feb374c8000-7feb374c9000 rw-p 00007000 08:01 7348468                    /lib/x86_64-linux-gnu/librt-2.26.so
+7feb374c9000-7feb3761e000 r-xp 00000000 08:01 7348443                    /lib/x86_64-linux-gnu/libm-2.26.so
+7feb3761e000-7feb3781d000 ---p 00155000 08:01 7348443                    /lib/x86_64-linux-gnu/libm-2.26.so
+7feb3781d000-7feb3781e000 r--p 00154000 08:01 7348443                    /lib/x86_64-linux-gnu/libm-2.26.so
+7feb3781e000-7feb3781f000 rw-p 00155000 08:01 7348443                    /lib/x86_64-linux-gnu/libm-2.26.so
+7feb3781f000-7feb3841b000 r-xp 00000000 08:01 4071395                    /usr/local/android-studio/jre/jre/lib/amd64/server/libjvm.so
+7feb3841b000-7feb3861b000 ---p 00bfc000 08:01 4071395                    /usr/local/android-studio/jre/jre/lib/amd64/server/libjvm.so
+7feb3861b000-7feb386bb000 r--p 00bfc000 08:01 4071395                    /usr/local/android-studio/jre/jre/lib/amd64/server/libjvm.so
+7feb386bb000-7feb386e4000 rw-p 00c9c000 08:01 4071395                    /usr/local/android-studio/jre/jre/lib/amd64/server/libjvm.so
+7feb386e4000-7feb38728000 rw-p 00000000 00:00 0 
+7feb38728000-7feb38742000 r-xp 00000000 08:01 7348465                    /lib/x86_64-linux-gnu/libpthread-2.26.so
+7feb38742000-7feb38941000 ---p 0001a000 08:01 7348465                    /lib/x86_64-linux-gnu/libpthread-2.26.so
+7feb38941000-7feb38942000 r--p 00019000 08:01 7348465                    /lib/x86_64-linux-gnu/libpthread-2.26.so
+7feb38942000-7feb38943000 rw-p 0001a000 08:01 7348465                    /lib/x86_64-linux-gnu/libpthread-2.26.so
+7feb38943000-7feb38947000 rw-p 00000000 00:00 0 
+7feb38947000-7feb3894a000 r-xp 00000000 08:01 7348441                    /lib/x86_64-linux-gnu/libdl-2.26.so
+7feb3894a000-7feb38b49000 ---p 00003000 08:01 7348441                    /lib/x86_64-linux-gnu/libdl-2.26.so
+7feb38b49000-7feb38b4a000 r--p 00002000 08:01 7348441                    /lib/x86_64-linux-gnu/libdl-2.26.so
+7feb38b4a000-7feb38b4b000 rw-p 00003000 08:01 7348441                    /lib/x86_64-linux-gnu/libdl-2.26.so
+7feb38b4b000-7feb38d21000 r-xp 00000000 08:01 7348435                    /lib/x86_64-linux-gnu/libc-2.26.so
+7feb38d21000-7feb38f21000 ---p 001d6000 08:01 7348435                    /lib/x86_64-linux-gnu/libc-2.26.so
+7feb38f21000-7feb38f25000 r--p 001d6000 08:01 7348435                    /lib/x86_64-linux-gnu/libc-2.26.so
+7feb38f25000-7feb38f27000 rw-p 001da000 08:01 7348435                    /lib/x86_64-linux-gnu/libc-2.26.so
+7feb38f27000-7feb38f2b000 rw-p 00000000 00:00 0 
+7feb38f2b000-7feb38f41000 r-xp 00000000 08:01 4071317                    /usr/local/android-studio/jre/lib/amd64/jli/libjli.so
+7feb38f41000-7feb39140000 ---p 00016000 08:01 4071317                    /usr/local/android-studio/jre/lib/amd64/jli/libjli.so
+7feb39140000-7feb39141000 r--p 00015000 08:01 4071317                    /usr/local/android-studio/jre/lib/amd64/jli/libjli.so
+7feb39141000-7feb39142000 rw-p 00016000 08:01 4071317                    /usr/local/android-studio/jre/lib/amd64/jli/libjli.so
+7feb39142000-7feb39169000 r-xp 00000000 08:01 7348427                    /lib/x86_64-linux-gnu/ld-2.26.so
+7feb39169000-7feb3916b000 r--s 00000000 08:01 3681429                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-jvm-services-4.4.jar
+7feb3916b000-7feb3916c000 r--s 00000000 08:01 3681455                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/jcip-annotations-1.0.jar
+7feb3916c000-7feb3916f000 r--s 00006000 08:01 3681453                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/jsr305-1.3.9.jar
+7feb3916f000-7feb3917b000 r--s 00032000 08:01 3681430                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-core-api-4.4.jar
+7feb3917b000-7feb39186000 r--s 0005b000 08:01 3681441                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-base-services-4.4.jar
+7feb39186000-7feb39248000 rw-p 00000000 00:00 0 
+7feb39248000-7feb3924b000 ---p 00000000 00:00 0 
+7feb3924b000-7feb3934b000 rw-p 00000000 00:00 0 
+7feb3934b000-7feb3934c000 r--s 00007000 08:01 3681451                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/slf4j-api-1.7.10.jar
+7feb3934c000-7feb39350000 r--s 00027000 08:01 3681447                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/commons-io-2.2.jar
+7feb39350000-7feb39351000 r--s 00004000 08:01 3681465                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/ant-launcher-1.9.9.jar
+7feb39351000-7feb3935d000 r--s 0005f000 08:01 3681423                    /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-launcher-4.4.jar
+7feb3935d000-7feb39365000 rw-s 00000000 08:01 2376725                    /tmp/hsperfdata_james/18659
+7feb39365000-7feb39366000 rw-p 00000000 00:00 0 
+7feb39366000-7feb39367000 ---p 00000000 00:00 0 
+7feb39367000-7feb39369000 rw-p 00000000 00:00 0 
+7feb39369000-7feb3936a000 r--p 00027000 08:01 7348427                    /lib/x86_64-linux-gnu/ld-2.26.so
+7feb3936a000-7feb3936b000 rw-p 00028000 08:01 7348427                    /lib/x86_64-linux-gnu/ld-2.26.so
+7feb3936b000-7feb3936c000 rw-p 00000000 00:00 0 
+7ffdc47fe000-7ffdc481f000 rw-p 00000000 00:00 0                          [stack]
+7ffdc48d3000-7ffdc48d6000 r--p 00000000 00:00 0                          [vvar]
+7ffdc48d6000-7ffdc48d8000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx1536m -Dfile.encoding=UTF-8 -Duser.country=CA -Duser.language=en -Duser.variant 
+java_command: org.gradle.launcher.daemon.bootstrap.GradleDaemon 4.4
+java_class_path (initial): /home/james/.gradle/wrapper/dists/gradle-4.4-all/9br9xq1tocpiv8o6njlyu5op1/gradle-4.4/lib/gradle-launcher-4.4.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/james/bin:/home/james/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+USERNAME=james
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x9edb30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x9edb30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x84e800], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x84e800], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x84e800], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x84e800], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x84e6d0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x84e8c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x84e8c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x84e8c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x84e8c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=17.10
+DISTRIB_CODENAME=artful
+DISTRIB_DESCRIPTION="Ubuntu 17.10"
+
+uname:Linux 4.13.0-39-generic #44-Ubuntu SMP Thu Apr 5 14:25:01 UTC 2018 x86_64
+libc:glibc 2.26 NPTL 2.26 
+rlimit: STACK 8192k, CORE 0k, NPROC 15148, NOFILE 1048576, AS infinity
+load average:14.49 4.35 2.31
+
+/proc/meminfo:
+MemTotal:        3932320 kB
+MemFree:           87704 kB
+MemAvailable:       2128 kB
+Buffers:             408 kB
+Cached:           150504 kB
+SwapCached:         3220 kB
+Active:          2956224 kB
+Inactive:         601716 kB
+Active(anon):    2945976 kB
+Inactive(anon):   589396 kB
+Active(file):      10248 kB
+Inactive(file):    12320 kB
+Unevictable:         568 kB
+Mlocked:             568 kB
+SwapTotal:       4087804 kB
+SwapFree:              0 kB
+Dirty:               196 kB
+Writeback:           220 kB
+AnonPages:       3406504 kB
+Mapped:            68120 kB
+Shmem:            128108 kB
+Slab:             109380 kB
+SReclaimable:      44396 kB
+SUnreclaim:        64984 kB
+KernelStack:       18880 kB
+PageTables:        90784 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6053964 kB
+Committed_AS:   15878076 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      282064 kB
+DirectMap2M:     3807232 kB
+
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2540M CPU @ 2.60GHz
+stepping	: 7
+microcode	: 0x2d
+cpu MHz		: 3092.908
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti retpoline spec_ctrl tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5188.10
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2540M CPU @ 2.60GHz
+stepping	: 7
+microcode	: 0x2d
+cpu MHz		: 2169.311
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti retpoline spec_ctrl tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5188.10
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2540M CPU @ 2.60GHz
+stepping	: 7
+microcode	: 0x2d
+cpu MHz		: 2318.534
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti retpoline spec_ctrl tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5188.10
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 42
+model name	: Intel(R) Core(TM) i5-2540M CPU @ 2.60GHz
+stepping	: 7
+microcode	: 0x2d
+cpu MHz		: 2254.040
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx lahf_lm epb pti retpoline spec_ctrl tpr_shadow vnmi flexpriority ept vpid xsaveopt dtherm ida arat pln pts
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 5188.10
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 3932320k(87544k free), swap 4087804k(36k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.152-b01) for linux-amd64 JRE (1.8.0_152-release-1024-b01), built by "builder" with gcc 4.8.4
+
+time: Tue May  1 11:26:54 2018
+elapsed time: 714 seconds (0d 0h 11m 54s)
+

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ColorSensorRGBStreamer12Well</string>
+    <string name="pumpoutStr">Return Fluid</string>
+</resources>
