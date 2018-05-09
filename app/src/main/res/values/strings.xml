@@ -1,30 +1,3 @@
 <resources>
     <string name="app_name">ColorSensorRGBStreamer12Well</string>
-    <string name="pumpoutBtnStr">Return Fluid</string>
-    <string name="pumpinBtnStr">Draw Fluid</string>
-    <string name="bluetoothBtnStr">Bluetooth</string>
-    <string name="connectBtnStr">Connect</string>
-    <string name="beginBtnStr">Begin</string>
-    <string name="stopBtnStr">Stop</string>
-    <string name="saveBtnStr">Save</string>
-    <string name="dataTxt">Data: </string>
-    <string name="redTxt">Red: </string>
-    <string name="blueTxt">Blue: </string>
-    <string name="greenTxt">Green: </string>
-    <string name="representativeTxt">Representative Colors: </string>
-    <string name="txt1">1) </string>
-    <string name="txt2">2) </string>
-    <string name="txt3">3) </string>
-    <string name="txt4">4) </string>
-    <string name="txt5">5) </string>
-    <string name="txt6">6) </string>
-    <string name="txt7">7) </string>
-    <string name="txt8">8) </string>
-    <string name="txt9">9) </string>
-    <string name="txt10">10) </string>
-    <string name="txt11">11) </string>
-    <string name="txt12">12) </string>
-    <string name="redColon">R: </string>
-    <string name="greenColon">G: </string>
-    <string name="blueColon">B: </string>
 </resources>
